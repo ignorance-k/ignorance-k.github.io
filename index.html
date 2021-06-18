@@ -152,19 +152,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-实验报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-web实验报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/06/16/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">实验报告</a>
+      <a class="article-title" href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">实验报告</a>
     </h1>
   
 
         
-        <a href="/2021/06/16/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="archive-article-date">
+        <a href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="archive-article-date">
   	<time datetime="2021-06-16T12:40:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
 </a>
         
@@ -172,7 +172,56 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2><h2 id="实验目录"><a href="#实验目录" class="headerlink" title="实验目录"></a>实验目录</h2>
+        <h2 id="做的什么"><a href="#做的什么" class="headerlink" title="做的什么"></a>做的什么</h2><p>​    我做的是一个基于前端框架Angular的动态网站，英雄之旅。但是由于一些知识还没搞懂，不能把他布置在GitHub上，并且也只是跟着教程大概的做了一遍，在加上要写报告，我就想着自己也没有一个自己的博客，所以就把实验报告就放在了自己的博客上。这个实验报告一是记录自己创建博客过程中遇到的问题和一些记录，二是记录在angular小实验中的遇到的问题和一些相应的记录。</p>
+<h2 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h2><h4 id="angular"><a href="#angular" class="headerlink" title="angular"></a>angular</h4><p>​    组件组件是 Angular 应用程序的主要构建块。每个组件包括：</p>
+<ul>
+<li><p>一个 HTML 模板，用于声明页面上呈现的内容，<code>&lt;component-name&gt;.component.html</code></p>
+</li>
+<li><p>一个组件文件，<code>&lt;component-name&gt;.component.ts</code></p>
+</li>
+<li><p>一个css文件，<code>&lt;component-name&gt;.component.css</code></p>
+</li>
+</ul>
+<p>  <strong>组件文件</strong>：一个组件包括一个带有装饰器、HTML 模板和样式的 TypeScript 类。该装饰指定下列特定角度信息：<code>@Component()</code> <code>@Component()</code></p>
+<ul>
+<li>一个 CSS 选择器，用于定义组件在模板中的使用方式。模板中与此选择器匹配的 HTML 元素成为组件的实例。</li>
+<li>指示 Angular 如何呈现组件的 HTML 模板。</li>
+<li>一组可选的 CSS 样式，用于定义模板的 HTML 元素的外观。</li>
+</ul>
+<p><strong>模板</strong>：每个组件都有一个 HTML 模板，用于声明该组件的呈现方式。您可以内联或按文件路径定义此模板。</p>
+<p>在我看来三者的关系，HTML模板文件时主要的显示，而组件文件从angular库中引入一些模块，和一些操作，而当HTML提到了模块中的属性时相关语法自动调用模块文件。</p>
+<p>主要的过程是根据angular官网的教程走了一遍。</p>
+<p>大体流程：用angular cli 创建初始应用程序—–创建英雄编辑器，并添加到外壳中显示—–用*ngfor显示一个列表—–用属性绑定来让父级组件控制子级—-重构行为类，进行数据访问在用messageservice为类间创建通信——添加导航—–用web api模块实现模拟数据服务器</p>
+<p><strong>博客建立</strong>：我的个人博客采用的是hexo这种框架完成，并已部署到到了GitHub上。大体流程：安装git bash—安装nodejs—生成ssh并添加到gihub–部署项目—绑定个人域名—配置主题—推到远端。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>   <strong>angular</strong>：</p>
+<pre><code>    - 显示英雄列表时ngif 是报错，没有英雄显示：TypeError: Cannot read property &#39;name&#39; of undefined
+    - 提取id路由参数时报错
+    - web api 和数据库的链接没有搞好
+</code></pre>
+<p><strong>hexo</strong></p>
+<ul>
+<li>在windows 系统下给hexo配置个人信息时就是修改_config.yml中的个人GitHub的地址和分支时报错</li>
+<li>用yilla时个人令牌的链接时报错</li>
+</ul>
+<iframe height=489 width=510
+src="//player.bilibili.com/player.html?aid=588713576&bvid=BV1DB4y1M7hJ&cid=355959598&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+
+
+<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><p>angular：</p>
+<ul>
+<li>网上看了一下是结合在模板中引用的性能表现<code>selectedHero</code>就像-expressions <code>&#123;&#123;selectedHero.name&#125;&#125;</code>-<em>一定会失败</em>，因为没有选择英雄。将英雄详细信息 HTML 包装在<code>&lt;div&gt;</code>. 将 Angular 的指令添加到并将其设置为。<code>*ngIf``&lt;div&gt;``selectedHero</code></li>
+<li>应用程序因编译器错误而崩溃。 <code>HeroService</code>没有<code>getHero()</code>方法。</li>
+</ul>
+<p>hexo:</p>
+<ul>
+<li>修改_congif.yml中网上教程是mac系统没有引号写入GitHub的地址但是在windows是要加一个引号地址才不会出错。</li>
+<li>个人GitHub的临牌一是可以直接输入密令用Git链接但是我这给电脑不知道为什么不行，就采用了用邮箱验证链接。</li>
+</ul>
+
       
 
       
@@ -184,7 +233,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/06/16/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">展开全文 >></a>
         </p>
       
 
