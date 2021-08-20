@@ -152,6 +152,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-集合小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="集合小结"><a href="#集合小结" class="headerlink" title="集合小结"></a>集合小结</h1><h2 id="初始介绍与体系图"><a href="#初始介绍与体系图" class="headerlink" title="初始介绍与体系图"></a>初始介绍与体系图</h2><hr>
+<p>​    集合是一个<strong>框架（库）</strong>，其中有很多接口主要是用于数据结构不同的问题。用Java的类库帮助我们实现在程序设计中的传统的数据结构。说明一下，与现代的数据结构库一样，采用<strong>接口</strong>与实现<strong>分离</strong>。</p>
+<hr>
+<p>​    </p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210819094957917.png" alt="image-20210819094957917"></p>
+<p>ArrayList：数组；linkedList：链表</p>
+<p>TreeSet,HashSet：排序</p>
+<hr>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210819095236086.png" alt="image-20210819095236086"></p>
+<ul>
+<li>集合分两组：单列集合，双列集合（键值对形式）</li>
+<li>Collection 接口有两个重要的子接口List,Set,他们实现的类都是单列集合</li>
+<li>Map：接口实现的子类是双列集合，K-V</li>
+</ul>
+<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><pre><code>+ collection接口扩展了Iterator接口。并且两个都是泛型接口。
++ collection实现子类是可以存放多个元素，每个元素可以是对象。
++ 有一些实现子类可以存放重复元素，有些不可以。
++ 有一些子类可以是有序的（List）有些不是有序的（Set）。
++ collection没有直接实现子类，是通过他的子接口Set和 List来实现
+</code></pre>
+<p>​    <strong>collection的基本方法</strong>。(基于ArrayList实现类的例子)</p>
+<p>​    add，remove，size，contains······</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="comment">//用接口来接受对象，可以有接口的变量，但不能实例化；</span></span><br><span class="line">        <span class="comment">//父类可以指向子类</span></span><br><span class="line">        <span class="comment">//add:添加单个元素</span></span><br><span class="line">        list.add(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line">        list.add(<span class="number">10</span>);<span class="comment">//list.add(new Interger(10));实际上是一个对象，不是基本的数据类型</span></span><br><span class="line">        list.add(<span class="keyword">true</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;list+&quot;</span> + list);</span><br><span class="line">        <span class="comment">//remove:删除指定对象</span></span><br><span class="line">		<span class="comment">// list.remove(&quot;true&quot;);</span></span><br><span class="line">		<span class="comment">//list.remove(0);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//contains:查找指定元素是否存在</span></span><br><span class="line">        System.out.println(list.contains(<span class="string">&quot;jack&quot;</span>));</span><br><span class="line">        <span class="comment">//size:获取元素个数</span></span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        <span class="comment">//</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>collection迭代器</strong>：扩展的Iterator。遍历集合</p>
+<p>Iterator仅用于遍历集合，本身并不存放对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Collection col = <span class="keyword">new</span> ArrayList();</span><br><span class="line"><span class="comment">//collection,指向子类，向上转型</span></span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;三国演义&quot;</span>,<span class="string">&quot;罗贯中&quot;</span>,<span class="number">15.5</span>));</span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;小李飞刀&quot;</span>,<span class="string">&quot;古龙&quot;</span>,<span class="number">19.9</span>));</span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;红楼梦&quot;</span>,<span class="string">&quot;曹雪芹&quot;</span>,<span class="number">29.8</span>));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;col=&quot;</span>+col);</span><br><span class="line"><span class="comment">//遍历col集合</span></span><br><span class="line"><span class="comment">//1.先得到col对应的迭代器</span></span><br><span class="line">Iterator iterator = col.iterator();</span><br><span class="line"><span class="comment">//2.使用while循环,快捷键itit</span></span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) <span class="comment">//判断是否有下一个元素</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//返回下一个元素，类型是Object</span></span><br><span class="line">    Object next =  iterator.next();</span><br><span class="line">    System.out.println(<span class="string">&quot;next=&quot;</span> + next);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.退出while后，iterator指向最后一给元素。</span></span><br><span class="line"><span class="comment">//iterator.next():抛出异常</span></span><br><span class="line"><span class="comment">//4.如果要再次遍历重置迭代器:iterator=col.iterator()</span></span><br></pre></td></tr></table></figure>
+
+<p>增强for循环，与数组差不多。快捷键I</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/08/19/%E9%9B%86%E5%90%88%E5%B0%8F%E7%BB%93/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-假期随记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
