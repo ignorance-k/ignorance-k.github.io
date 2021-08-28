@@ -17,8 +17,11 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="c:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20210819094957917.png">
 <meta property="og:image" content="c:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20210819095236086.png">
+<meta property="og:image" content="c:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20210825220400090.png">
+<meta property="og:image" content="c:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20210825220425585.png">
+<meta property="og:image" content="c:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20210825220524343.png">
 <meta property="article:published_time" content="2021-08-19T03:40:58.790Z">
-<meta property="article:modified_time" content="2021-08-20T02:31:43.561Z">
+<meta property="article:modified_time" content="2021-08-26T02:22:32.039Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="c:/Users/Lenovo/AppData/Roaming/Typora/typora-user-images/image-20210819094957917.png">
@@ -191,6 +194,36 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Collection col = <span class="keyword">new</span> ArrayList();</span><br><span class="line"><span class="comment">//collection,指向子类，向上转型</span></span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;三国演义&quot;</span>,<span class="string">&quot;罗贯中&quot;</span>,<span class="number">15.5</span>));</span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;小李飞刀&quot;</span>,<span class="string">&quot;古龙&quot;</span>,<span class="number">19.9</span>));</span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;红楼梦&quot;</span>,<span class="string">&quot;曹雪芹&quot;</span>,<span class="number">29.8</span>));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;col=&quot;</span>+col);</span><br><span class="line"><span class="comment">//遍历col集合</span></span><br><span class="line"><span class="comment">//1.先得到col对应的迭代器</span></span><br><span class="line">Iterator iterator = col.iterator();</span><br><span class="line"><span class="comment">//2.使用while循环,快捷键itit</span></span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) <span class="comment">//判断是否有下一个元素</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//返回下一个元素，类型是Object</span></span><br><span class="line">    Object next =  iterator.next();</span><br><span class="line">    System.out.println(<span class="string">&quot;next=&quot;</span> + next);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.退出while后，iterator指向最后一给元素。</span></span><br><span class="line"><span class="comment">//iterator.next():抛出异常</span></span><br><span class="line"><span class="comment">//4.如果要再次遍历重置迭代器:iterator=col.iterator()</span></span><br></pre></td></tr></table></figure>
 
 <p>增强for循环，与数组差不多。快捷键I</p>
+<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><ul>
+<li>List接口是collection接口的子接口</li>
+<li>List集合类中元素有序（添加顺序和取出顺序一致），<strong>可以重复</strong>。</li>
+<li>List有对应的顺序索引，支持索引。</li>
+<li>List容器中元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号取出容器中的元素。</li>
+<li>常有的实现类：ArraryList，LinkedList，Vector</li>
+</ul>
+<h4 id="ArraryList实现类"><a href="#ArraryList实现类" class="headerlink" title="ArraryList实现类"></a>ArraryList实现类</h4><p>​     ArrayList是由数组来实现数据存储的；ArrayList基本等同于Vector，除了ArrayList是线程不安全的（但执行效率高）。</p>
+<h5 id="底层操作与源码分析"><a href="#底层操作与源码分析" class="headerlink" title="底层操作与源码分析"></a>底层操作与源码分析</h5><pre><code>+ ArrayList维护了一个object类型数组elementData.[]。
+</code></pre>
+<p>transient Object[] elementData;//表示属性不被序列化。</p>
+<pre><code>+ 创建对象时，如果使用的的无参构造器，扩容机制：先开始时0，第一次为10，如果再次扩容为elementData为1.5倍。
++ 如果使用的时指定大小的构造器，初始容量为指定大小，扩容为1.5倍。
+</code></pre>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210825220400090.png" alt="image-20210825220400090"></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210825220425585.png" alt="image-20210825220425585"></p>
+<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210825220524343.png" alt="image-20210825220524343"></p>
+<h4 id="Vector实现类"><a href="#Vector实现类" class="headerlink" title="Vector实现类"></a>Vector实现类</h4><p>​    线程安全同步，但效率不高。扩容：无参，默认10个，按两倍扩展，有参：两倍扩展。</p>
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><ul>
+<li>底层实现的双向链表的特点</li>
+<li>可以添加任意元素，包含null</li>
+</ul>
+<p>IDE的快捷键</p>
+<p>ctrl+y：删除当前行</p>
+<p>ctrl+d：复制当前行</p>
+<p>ctrl+alter+l：代碼格式化對其</p>
+<p>alter+insert：生成构造器或重写</p>
+<p>ctrl+h：查看层级关系</p>
+<p>CTRL+b：找到方法的类</p>
+<p>.var生成变量名</p>
 
       
 
@@ -283,6 +316,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2021/08/26/%E8%8B%B1%E8%AF%AD%E8%AE%A1%E5%88%92/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2021/08/11/%E5%81%87%E6%9C%9F%E9%9A%8F%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
