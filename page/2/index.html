@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="John Doe">
@@ -152,35 +152,265 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Springboot_vue_sport项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MATLAB 入门之旅摘要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="sport项目笔记"><a href="#sport项目笔记" class="headerlink" title="sport项目笔记"></a>sport项目笔记</h2><h4 id="1-后台项目建立，选择三个模块："><a href="#1-后台项目建立，选择三个模块：" class="headerlink" title="1. 后台项目建立，选择三个模块："></a>1. 后台项目建立，选择三个模块：</h4><h4 id="web，mybatis-frame，mysql-driver，jdbc-Api"><a href="#web，mybatis-frame，mysql-driver，jdbc-Api" class="headerlink" title="web，mybatis frame，mysql driver，jdbc Api"></a>web，mybatis frame，mysql driver，jdbc Api</h4><h4 id="2-application-yml配置文件："><a href="#2-application-yml配置文件：" class="headerlink" title="2. application.yml配置文件："></a>2. application.yml配置文件：</h4><p>删除application.properties的内容</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driverClassName:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/easyproject</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/*.xml</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.example.demo.model</span></span><br><span class="line"><span class="comment"># type-aliases-package就是扫描pojo（实体类）包，给包下所有pojo对象起别名。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9000</span></span><br><span class="line"><span class="comment"># 端口号的更改时因为前后端分离时，前端会暂用8080端口。</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-
-
-<blockquote>
-<h1 id="getMapping和-postMapping，-RestController"><a href="#getMapping和-postMapping，-RestController" class="headerlink" title="@getMapping和@postMapping，@RestController"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ghc666/p/8657526.html">@getMapping和@postMapping，@RestController</a></h1><p>@RequestMapping  和  @GetMapping @PostMapping 区别</p>
-<p>@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。</p>
-<p>@PostMapping是一个组合注解，是@RequestMapping(method = RequestMethod.POST)的缩写。</p>
-<p>@Controller和@RestController的区别？</p>
-<p>官方文档：<br>@RestController is a stereotype annotation that combines @ResponseBody and @Controller.<br>意思是：<br>@RestController注解相当于@ResponseBody ＋ @Controller合在一起的作用。</p>
-<p>1)如果只是使用@RestController注解Controller，则Controller中的方法无法返回jsp页面，配置的视图解析器InternalResourceViewResolver不起作用，返回的内容就是Return 里的内容。</p>
-<p>例如：本来应该到success.jsp页面的，则其显示success.</p>
-<p>2)如果需要返回到指定页面，则需要用 @Controller配合视图解析器InternalResourceViewResolver才行。<br>3)如果需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解</p>
-<p>和你一起追求代码的提供给我们的快乐</p>
-</blockquote>
+        <h1 id="MATLAB-入门之旅摘要"><a href="#MATLAB-入门之旅摘要" class="headerlink" title="MATLAB 入门之旅摘要"></a>MATLAB 入门之旅摘要</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/matlab_env/create-and-edit-variables.html"><code>x = pi</code></a></td>
+<td align="center">使用等号 (<code>=</code>) 创建变量。 左侧 (<code>x</code>) 是变量的名称，其值为右侧 (<code>pi</code>) 的值。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/learn_matlab/calling-functions.html"><code>y = sin(-5)</code></a></td>
+<td align="center">您可以使用括号提供函数的输入。</td>
+</tr>
+</tbody></table>
+<h2 id="桌面管理"><a href="#桌面管理" class="headerlink" title="桌面管理"></a>桌面管理</h2><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/save.html"><code>save</code></a></td>
+<td align="center"><code>save data.mat</code></td>
+<td align="center">将当前工作区保存到 MAT 文件中。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/load.html"><code>load</code></a></td>
+<td align="center"><code>load data.mat</code></td>
+<td align="center">将 MAT 文件中的变量加载到工作区。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/clear.html"><code>clear</code></a></td>
+<td align="center"><code>clear</code></td>
+<td align="center">清除工作区中的所有变量。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/clc.html"><code>clc</code></a></td>
+<td align="center"><code>clc</code></td>
+<td align="center">清除命令行窗口中的所有文本。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/format.html"><code>format</code></a></td>
+<td align="center"><code>format long</code></td>
+<td align="center">更改数值输出的显示方式。</td>
+</tr>
+</tbody></table>
+<h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>4</code></td>
+<td align="center">标量</td>
+</tr>
+<tr>
+<td align="center"><code>[3 5]</code></td>
+<td align="center">行向量</td>
+</tr>
+<tr>
+<td align="center"><code>[1;3]</code></td>
+<td align="center">列向量</td>
+</tr>
+<tr>
+<td align="center"><code>[3 4 5;6 7 8]</code></td>
+<td align="center">矩阵</td>
+</tr>
+</tbody></table>
+<h2 id="等间距向量"><a href="#等间距向量" class="headerlink" title="等间距向量"></a>等间距向量</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>1:4</code></td>
+<td align="center">使用<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/colon.html">冒号 (<code>:</code>)</a> 运算符，创建一个从 <code>1</code> 到 <code>4</code>，间距为 <code>1</code> 的向量。</td>
+</tr>
+<tr>
+<td align="center"><code>1:0.5:4</code></td>
+<td align="center">创建一个从 <code>1</code> 到 <code>4</code>，间距为 <code>0.5</code> 的向量。</td>
+</tr>
+<tr>
+<td align="center"><code>linspace(1,10,5)</code></td>
+<td align="center">创建一个包含 <code>5</code> 个元素的向量。这些值从 <code>1</code> 到 <code>10</code> 均匀间隔。</td>
+</tr>
+</tbody></table>
+<h2 id="创建矩阵"><a href="#创建矩阵" class="headerlink" title="创建矩阵"></a>创建矩阵</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>rand(2)</code></td>
+<td align="center">创建一个 <code>2</code> 行 <code>2</code> 列的方阵。</td>
+</tr>
+<tr>
+<td align="center"><code>zeros(2,3)</code></td>
+<td align="center">创建一个 <code>2</code> 行 <code>3</code> 列的矩形矩阵。</td>
+</tr>
+</tbody></table>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>A(end,2)</code></td>
+<td align="center">访问最后一行的第二列中的元素。</td>
+</tr>
+<tr>
+<td align="center"><code>A(2,:)</code></td>
+<td align="center">访问第二行所有元素。</td>
+</tr>
+<tr>
+<td align="center"><code>A(1:3,:)</code></td>
+<td align="center">访问前三行的所有列。</td>
+</tr>
+<tr>
+<td align="center"><code>A(2) = 11</code></td>
+<td align="center">将数组中第二个元素的值更改为 <code>11</code>。</td>
+</tr>
+</tbody></table>
+<h2 id="数组运算"><a href="#数组运算" class="headerlink" title="数组运算"></a>数组运算</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>[1 1; 1 1]*[2 2;2 2] ans =     4    4     4    4</code></td>
+<td align="center">执行<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/matlab_prog/array-vs-matrix-operations.html#btyv9yp-4">矩阵乘法</a>。</td>
+</tr>
+<tr>
+<td align="center"><code>[1 1; 1 1].*[2 2;2 2] ans =     2    2     2    2</code></td>
+<td align="center">执行<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/matlab_prog/array-vs-matrix-operations.html#bu90xxy-1">按元素乘法</a>。</td>
+</tr>
+</tbody></table>
+<h2 id="多个输出"><a href="#多个输出" class="headerlink" title="多个输出"></a>多个输出</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>[xrow,xcol] = size(x)</code></td>
+<td align="center">将 <code>x</code> 中的行数和列数保存为两个不同变量。</td>
+</tr>
+<tr>
+<td align="center"><code>[xMax,idx] = max(x)</code></td>
+<td align="center">计算 <code>x</code> 的最大值及其对应的索引值。</td>
+</tr>
+</tbody></table>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>doc randi</code></td>
+<td align="center">打开 <code>randi</code> 函数的文档页。</td>
+</tr>
+</tbody></table>
+<h2 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>plot(x,y,&quot;ro-&quot;,&quot;LineWidth&quot;,5)</code></td>
+<td align="center">绘制一条红色 (<code>r</code>) 虚线 (<code>--</code>) 并使用圆圈 (<code>o</code>) 标记，线宽很大。</td>
+</tr>
+<tr>
+<td align="center"><code>hold on</code></td>
+<td align="center">在现有绘图中新增一行。</td>
+</tr>
+<tr>
+<td align="center"><code>hold off</code></td>
+<td align="center">为下一个绘图线条创建一个新坐标区。</td>
+</tr>
+<tr>
+<td align="center"><code>title(&quot;My Title&quot;)</code></td>
+<td align="center">为绘图添加标签。</td>
+</tr>
+</tbody></table>
+<h2 id="使用表"><a href="#使用表" class="headerlink" title="使用表"></a>使用表</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>data.HeightYards</code></td>
+<td align="center">从表 <code>data</code> 中提取变量 <code>HeightYards</code>。</td>
+</tr>
+<tr>
+<td align="center"><code>data.HeightMeters = data.HeightYards*0.9144</code></td>
+<td align="center">从现有数据中派生一个表变量。</td>
+</tr>
+</tbody></table>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>[5 10 15] &gt; 12</code></td>
+<td align="center">将向量与值 <code>12</code> 进行比较。</td>
+</tr>
+<tr>
+<td align="center"><code>v1(v1 &gt; 6)</code></td>
+<td align="center">提取 <code>v1</code> 中大于 <code>6</code> 的所有元素。</td>
+</tr>
+<tr>
+<td align="center"><code>x(x==999) = 1</code></td>
+<td align="center">用值 <code>1</code> 替换 <code>x</code> 中等于 <code>999</code> 的所有值。</td>
+</tr>
+</tbody></table>
+<h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>if x &gt; 0.5    y = 3 else    y = 4 end</code></td>
+<td align="center">如果 <code>x</code> 大于 <code>0.5</code>，则将 <code>y</code> 的值设置为 <code>3</code>。  否则，将 <code>y</code> 的值设置为 <code>4</code>。</td>
+</tr>
+<tr>
+<td align="center"><code>for c = 1:3    disp(c) end</code></td>
+<td align="center">循环计数器 (<code>c</code>) 遍历 值 <code>1:3</code>（<code>1</code>、<code>2</code> 和 <code>3</code>）。  循环体显示 <code>c</code> 的每个值</td>
+</tr>
+</tbody></table>
 
       
 
@@ -193,7 +423,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/17/Springboot_vue_sport%E9%A1%B9%E7%9B%AE/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/26/MATLAB%20%E5%85%A5%E9%97%A8%E4%B9%8B%E6%97%85%E6%91%98%E8%A6%81/">展开全文 >></a>
         </p>
       
 
@@ -223,749 +453,77 @@
 
 
   
-    <article id="post-springboot" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-web实验报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="springboot"><a href="#springboot" class="headerlink" title="springboot"></a>springboot</h2><h3 id="什么是springbooot"><a href="#什么是springbooot" class="headerlink" title="什么是springbooot"></a>什么是springbooot</h3><p>Spring Boot 基于 Spring 开发，Spirng Boot 本身并不提供 Spring 框架的核心特性以及扩展功能，只是用于快速、敏捷地开发新一代基于 Spring 框架的应用程序。也就是说，它并不是用来替代 Spring 的解决方案，而是和 Spring 框架紧密结合用于提升 Spring 开发者体验的工具。Spring Boot 以<strong>约定大于配置的核心思想</strong>，默认帮我们进行了很多设置，多数 Spring Boot 应用只需要很少的 Spring 配置。同时它集成了大量常用的第三方库配置（例如 Redis、MongoDB、Jpa、RabbitMQ、Quartz 等等），Spring Boot 应用中这些第三方库几乎可以零配置的开箱即用。</p>
-<p><strong>简单来说就是SpringBoot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，spring boot整合了所有的框架 。</strong></p>
-<h3 id="springboot的原理简单解释"><a href="#springboot的原理简单解释" class="headerlink" title="springboot的原理简单解释"></a>springboot的原理简单解释</h3><p>为什么我们在yml配置文件中配置之后，就会生效相应的功能？</p>
-<p>在配置文件中配置的东西，都有一个固定的规律</p>
-<p>xxxAutoConfiguration  自动装配默认值。xxxProperties  与对应的配置文件，就可以修改默认的值了。</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211116164314816.png" alt="image-20211116164314816"></p>
-<p><strong>精髓</strong></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211116164516878.png" alt="image-20211116164516878"></p>
-<h3 id="SpringBoot的yml语法"><a href="#SpringBoot的yml语法" class="headerlink" title="SpringBoot的yml语法"></a>SpringBoot的yml语法</h3><p>语法结构 ：key：空格 value</p>
-<p><strong>配置文件的作用 ：</strong>修改SpringBoot自动配置的默认值，因为SpringBoot在底层都给我们自动配置好了；</p>
-<blockquote>
-<p> yml基础语法</p>
-</blockquote>
-<p>说明：语法要求严格！</p>
-<p>1、空格不能省略</p>
-<p>2、以缩进来控制层级关系，只要是左边对齐的一列数据都是同一个层级的。</p>
-<p>3、属性和值的大小写都是十分敏感的。</p>
-<p>实例</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">person:</span></span><br><span class="line">  <span class="attr">name:</span> <span class="string">qinjiang</span></span><br><span class="line">  <span class="attr">age:</span> <span class="number">3</span></span><br><span class="line">  <span class="attr">happy:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">birth:</span> <span class="number">2000</span><span class="string">/01/01</span></span><br><span class="line">  <span class="attr">maps:</span> &#123;<span class="attr">k1:</span> <span class="string">v1</span>,<span class="attr">k2:</span> <span class="string">v2</span>&#125;</span><br><span class="line">  <span class="attr">lists:</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">code</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">girl</span></span><br><span class="line">   <span class="bullet">-</span> <span class="string">music</span></span><br><span class="line">  <span class="attr">dog:</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">旺财</span></span><br><span class="line">    <span class="attr">age:</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="SpringBoot的配置文件的加载优先级"><a href="#SpringBoot的配置文件的加载优先级" class="headerlink" title="SpringBoot的配置文件的加载优先级"></a>SpringBoot的配置文件的加载优先级</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">优先级1：项目路径下的config文件夹配置文件</span></span><br><span class="line"><span class="string">优先级2：项目路径下配置文件</span></span><br><span class="line"><span class="string">优先级3：资源路径下的config文件夹配置文件</span></span><br><span class="line"><span class="string">优先级4：资源路径下配置文件</span></span><br></pre></td></tr></table></figure>
-
-<p>优先级由高到底，高优先级的配置会覆盖低优先级的配置；</p>
-<blockquote>
-<p>多配置文件</p>
-<p>yaml使用”—“来实现多文档快</p>
-</blockquote>
-<h3 id="SpringBoot-Web开发"><a href="#SpringBoot-Web开发" class="headerlink" title="SpringBoot Web开发"></a>SpringBoot Web开发</h3><h4 id="静态资源的导入问题"><a href="#静态资源的导入问题" class="headerlink" title="静态资源的导入问题"></a>静态资源的导入问题</h4><p>以下四个目录存放的静态资源可以被我们识别：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;classpath:/META-INF/resources/&quot;</span><br><span class="line">&quot;classpath:/resources/&quot;</span><br><span class="line">&quot;classpath:/static/&quot;</span><br><span class="line">&quot;classpath:/public/&quot;</span><br></pre></td></tr></table></figure>
-
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211116173233166.png" alt="image-20211116173233166"></p>
-<p>优先级：resource  》  static   》   public</p>
-<h4 id="首页和图标"><a href="#首页和图标" class="headerlink" title="首页和图标"></a>首页和图标</h4><p>欢迎页，静态资源文件夹下的所有 index.html 页面；被 /** 映射。</p>
-<p>比如我访问  <a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a> ，就会找静态资源文件夹下的 index.html</p>
-<p><strong>图标</strong></p>
-<p>与其他静态资源一样，Spring Boot在配置的静态内容位置中查找 favicon.ico。如果存在这样的文件，它将自动用作应用程序的favicon。</p>
-<p>1、关闭SpringBoot默认图标</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#关闭默认图标</span></span><br><span class="line"><span class="string">spring.mvc.favicon.enabled=false</span></span><br></pre></td></tr></table></figure>
-
-<p>2、自己放一个图标在静态资源目录下，我放在 public 目录下</p>
-<p>3、清除浏览器缓存！刷新网页，发现图标已经变成自己的了！</p>
-<h4 id="模板引擎"><a href="#模板引擎" class="headerlink" title="模板引擎"></a>模板引擎</h4><p>模板引擎，我们其实大家听到很多，其实jsp就是一个模板引擎，还有用的比较多的</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/16/springboot/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
+      <header class="article-header">
         
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-未命名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211114123444942.png" alt="image-20211114123444942"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211114125732189.png" alt="image-20211114125732189"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/14/%E6%9C%AA%E5%91%BD%E5%90%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">web实验报告</a>
+    </h1>
   
-    <article id="post-Javaweb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+
+        
+        <a href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="archive-article-date">
+  	<time datetime="2021-06-16T12:40:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Javaweb"><a href="#Javaweb" class="headerlink" title="Javaweb"></a>Javaweb</h1><h2 id="1-介绍"><a href="#1-介绍" class="headerlink" title="1.介绍"></a>1.介绍</h2><ul>
-<li>一个web应用由多个部分组成（动态web，静态web）<ul>
-<li>html,css,js</li>
-<li>jsp,servlet</li>
-<li>java程序</li>
-<li>jar包</li>
-<li>配置文件（properties）</li>
-</ul>
+        <h2 id="做的什么"><a href="#做的什么" class="headerlink" title="做的什么"></a>做的什么</h2><p>​    我做的是一个基于前端框架Angular的动态网站，英雄之旅。但是由于一些知识还没搞懂，不能把他布置在GitHub上，并且也只是跟着教程大概的做了一遍，在加上要写报告，我就想着自己也没有一个自己的博客，所以就把实验报告就放在了自己的博客上。这个实验报告一是<strong>记录自己创建博客</strong>过程中遇到的问题和一些记录，二是记<strong>录在angular小实验</strong>中的遇到的问题和一些相应的记录。</p>
+<h2 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h2><h5 id="angular的基本介绍"><a href="#angular的基本介绍" class="headerlink" title="angular的基本介绍"></a>angular的基本介绍</h5><p>​    组件组件是 Angular 应用程序的主要构建块。每个组件包括：</p>
+<ul>
+<li><p>一个 HTML 模板，用于声明页面上呈现的内容，<code>&lt;component-  name&gt;.component.html</code></p>
+</li>
+<li><p>一个组件文件，<code>&lt;component-name&gt;.component.ts</code></p>
+</li>
+<li><p>一个css文件，<code>&lt;component-name&gt;.component.css</code></p>
 </li>
 </ul>
-<p>静态web(有很多缺点)</p>
-<p><img src="image-20210829095716703.png" alt="image-20210829095716703"></p>
-<p>动态web</p>
-<p><img src="image-20210829100213386.png" alt="image-20210829100213386"></p>
-<p>缺点</p>
+<p><strong>组件文件</strong>：一个组件包括一个带有装饰器、HTML 模板和样式的 TypeScript 类。该装饰指定下列特定角度信息：<code>@Component()</code> <code>@Component()</code></p>
 <ul>
-<li>加入服务器的动态web资源出现了错误，我们需要重新编写我们的后台程序<ul>
-<li>停机维护</li>
+<li>一个 CSS 选择器，用于定义组件在模板中的使用方式。模板中与此选择器匹配的 HTML 元素成为组件的实例。</li>
+<li>指示 Angular 如何呈现组件的 HTML 模板。</li>
+<li>一组可选的 CSS 样式，用于定义模板的 HTML 元素的外观。</li>
 </ul>
-</li>
-</ul>
-<p>优点</p>
-<ul>
-<li>可以和数据库交互</li>
-<li>动态更新，所有的用户看到的不是同一个页面</li>
-</ul>
-<h2 id="2-web服务器"><a href="#2-web服务器" class="headerlink" title="2.web服务器"></a>2.web服务器</h2><h3 id="2-1技术讲解"><a href="#2-1技术讲解" class="headerlink" title="2.1技术讲解"></a>2.1技术讲解</h3><p><strong>ASP</strong></p>
-<ul>
-<li>微软：最早流行的</li>
-<li>在HTML中嵌入vb的脚本，ASP+COM；</li>
-<li>基本一个页面都有几千行业务代码，很乱</li>
-</ul>
-<p><strong>php</strong></p>
-<ul>
-<li>PHP开发速度很快，功能强大，跨平台，代码简单</li>
-<li>无法承载大访问量（局限性）</li>
-</ul>
-<p><strong>JSP</strong>/<strong>Servlet</strong></p>
-<p>B/S：浏览和服务器</p>
-<p>C/S：客户端和服务器</p>
-<ul>
-<li>sun公司推的B/S</li>
-<li>基于Java语言</li>
-<li>可以承载三高问题影响</li>
-</ul>
-<h3 id="2-2web服务器"><a href="#2-2web服务器" class="headerlink" title="2.2web服务器"></a>2.2web服务器</h3><p>服务器是一种被动的操作，用来处理一些用户请求和用户的一些响应信息。</p>
-<p><strong>Tomcat</strong>：</p>
-<p>Tomcat是Apache 软件基金会（Apache Software Foundation）的Jakarta 项目中的一个核心项目，最新的Servlet 和JSP 规范总是能在Tomcat 中得到体现，因为Tomcat 技术先进、性能稳定，而且免费，因而深受Java 爱好者的喜爱并得到了部分软件开发商的认可，成为目前比较流行的Web 应用服务器。</p>
-<p>Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E5%99%A8">服务器</a>，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。对于一个初学者来说，最佳选择。</p>
-<p>Tomcat 实际上运行JSP 页面和Servlet。Tomcat最新版本为10.0.5<strong>。</strong></p>
-<p>下载tomcat</p>
-<p>1：安装or解压</p>
-<p>2：了解配置文件目录文件</p>
-<p>3：这个的作用</p>
-<h2 id="3-tomcat"><a href="#3-tomcat" class="headerlink" title="3.tomcat"></a>3.tomcat</h2><h3 id="3-1安装tomcat"><a href="#3-1安装tomcat" class="headerlink" title="3.1安装tomcat"></a>3.1安装tomcat</h3><p>启动，关闭tomcat</p>
-<p><img src="image-20210831220041307.png" alt="image-20210831220041307"></p>
-<h3 id="tomcat配置"><a href="#tomcat配置" class="headerlink" title="tomcat配置"></a>tomcat配置</h3><p><img src="image-20210901160718980.png" alt="image-20210901160718980"></p>
-<ul>
-<li>tomcat的默认端口号：8080</li>
-<li>mysql：3306</li>
-<li>http：80</li>
-<li>https：443</li>
-</ul>
-<p>网站是如何进行访问的</p>
-<p>先检查自己电脑上的</p>
-<p><strong>IIS</strong></p>
-<p>微软自带的</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/29/Javaweb/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-考研资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="考研资料"><a href="#考研资料" class="headerlink" title="考研资料"></a>考研资料</h1><p>2022年12月底考研初试</p>
-<p>自己的话</p>
-<p>考研流程</p>
-<img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210828205517768.png" alt="image-20210828205517768"  />
-
-<p>目标院校情况了解目标院校历年报考人数、分数线和报录比，学校和专业招生情况.</p>
-<p>每一课考研时间 3个小时。</p>
-<p>上午：政治  100   </p>
-<p>推荐搞个辅导班比较省时间 肖晓荣</p>
-<p>下午：英语  100</p>
-<p>上午：数学   150</p>
-<p>下午：专业课  150</p>
-<p>学科门类：三类  计算机 工学</p>
-<p>在选校方面，还是由仔细看看招生简章，，，，官网直接搜什么研究生院，主要找：历年分数线，历年报录比，具体要求</p>
-<p>意见贴的时候，可以看看失败的。自己英语不好这是必须要考虑的。</p>
-<p>数学   选择张宇</p>
-<p>专业课   选择王道</p>
-<p><img src="image-20211006171329569.png" alt="image-20211006171329569"></p>
-<p>英语比较差可以看看选择重基础的老师和方法<strong>陈仲凯</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/%E8%80%83%E7%A0%94%E8%B5%84%E6%96%99/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JDBC学习小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h2 id="1-数据库驱动"><a href="#1-数据库驱动" class="headerlink" title="1.数据库驱动"></a>1.数据库驱动</h2><p><img src="C:\Users\Lenovo\blog\source\image\image-20210827213245180.png" alt="image-20210827213245180"></p>
-<p>为什么需要数据库驱动。因为我们的程序会通过 数据库 驱动与数据库打交道。</p>
-<h2 id="2-JDBC"><a href="#2-JDBC" class="headerlink" title="2.JDBC"></a>2.JDBC</h2><p>但不同的数据库厂商，驱动也不同。而sun公司 简化开发人员（对数据库的统一）提供了一个（Java操作数据库的规范）。俗称jdbc</p>
-<p>而我们只需要掌握jdbc接口的操作即可。</p>
-<p><img src="C:\Users\Lenovo\blog\source\image\image-20210827213636182.png" alt="image-20210827213636182"></p>
-<p>数据库驱动包mysql-connector-java-5.1.47.jar</p>
-<h2 id="3-第一个JDBC程序"><a href="#3-第一个JDBC程序" class="headerlink" title="3.第一个JDBC程序"></a>3.第一个JDBC程序</h2><p>1：创建数据库</p>
-<p>2：导入数据库驱动包：直接在lib文件夹下，粘贴包</p>
-<p>3：第一个程序</p>
-<figure class="highlight plaintext"><figcaption><span>class JDBCdem &#123;</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"> public static void main(String[] args) throws ClassNotFoundException, SQLException &#123;</span><br><span class="line">        //1:加载驱动</span><br><span class="line">        Class.forName(&quot;com.mysql.jdbc.Driver&quot;);//固定写法</span><br><span class="line"></span><br><span class="line">        //2:用户信息url</span><br><span class="line">        String url=&quot;jdbc:mysql://localhost:3306/student?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false&quot;;</span><br><span class="line">//        String url = &quot;jdbc:mysql://localhost:3306/student&quot;;</span><br><span class="line">        String username = &quot;root&quot;;</span><br><span class="line">        String password = &quot;123456&quot;;</span><br><span class="line">        </span><br><span class="line">        //3:链接成功数据库对象</span><br><span class="line">        Connection connection = DriverManager.getConnection(url,username,password);</span><br><span class="line">        //connection代表数据库对象</span><br><span class="line">        //4:执行SQL对象</span><br><span class="line">        Statement statement = connection.createStatement();</span><br><span class="line">        //statement代表执行类</span><br><span class="line">//        statement.execute()//都行</span><br><span class="line">//        statement.executeQuery();//执行查询操作，返回一个resultset.</span><br><span class="line">//        statement.executeUpdate();//执行，更新，插入，删除。返回搜影响的行数</span><br><span class="line">        String sql = &quot;select * from stident&quot;;</span><br><span class="line">        ResultSet resultSet = statement.executeQuery(sql);</span><br><span class="line">        while (resultSet.next())</span><br><span class="line">        &#123;</span><br><span class="line">            System.out.println(&quot;id&quot;+resultSet.getObject(&quot;Sno&quot;)+&quot;name&quot;+resultSet.getObject(&quot;Sname&quot;));</span><br><span class="line">//            resultSet.getString();指定类型查找。···</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        //5:释放对象</span><br><span class="line">        resultSet.close();</span><br><span class="line">        statement.close();</span><br><span class="line">        connection.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; ``</span><br></pre></td></tr></table></figure>
-
-<p>3.1 </p>
-<p>加载驱动 class.forname</p>
-<p>链接数据库 DriverManager   connection代表数据库对象</p>
-<p>获得执行sql的对象 statement</p>
-<p>获得返回结果</p>
-<p>释放连接</p>
-<h2 id="4-代码程序"><a href="#4-代码程序" class="headerlink" title="4.代码程序"></a>4.代码程序</h2><p>增加：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">      </span><br><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testInsertP</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement st = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = jdbcutils.getConnection();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//区别</span></span><br><span class="line">            <span class="comment">//使用？展位</span></span><br><span class="line">            String sql = <span class="string">&quot;INSERT INTO `stident` VALUES (?,?)&quot;</span>;</span><br><span class="line"></span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            <span class="comment">//参数</span></span><br><span class="line">            st.setObject(<span class="number">1</span>,<span class="string">&quot;7&quot;</span>);</span><br><span class="line">            st.setObject(<span class="number">2</span>,<span class="string">&quot;喜羊羊&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行</span></span><br><span class="line">            <span class="keyword">int</span> i = st.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span> (i&gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;数据更新成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">            throwables.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            jdbcutils.release(conn,st,<span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>删除</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testDeleteP</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement st = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = jdbcutils.getConnection();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//区别</span></span><br><span class="line">            <span class="comment">//使用？展位</span></span><br><span class="line">            String sql = <span class="string">&quot;delete from stident where sno=?&quot;</span>;</span><br><span class="line"></span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            <span class="comment">//参数</span></span><br><span class="line">            st.setObject(<span class="number">1</span>,<span class="string">&quot;7&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行</span></span><br><span class="line">            <span class="keyword">int</span> i = st.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span> (i&gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;数据更新成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">            throwables.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            jdbcutils.release(conn,st,<span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>修改</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testUpdateP</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement st = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = jdbcutils.getConnection();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//区别</span></span><br><span class="line">            <span class="comment">//使用？展位</span></span><br><span class="line">            String sql = <span class="string">&quot;update stident set Sname=? where Sno=?&quot;</span>;</span><br><span class="line"></span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            <span class="comment">//参数</span></span><br><span class="line">            st.setObject(<span class="number">1</span>,<span class="string">&quot;野比大雄&quot;</span>);</span><br><span class="line">            st.setObject(<span class="number">2</span>,<span class="string">&quot;6&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行</span></span><br><span class="line">            <span class="keyword">int</span> i = st.executeUpdate();</span><br><span class="line">            <span class="keyword">if</span> (i&gt;<span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;数据更新成功&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">            throwables.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            jdbcutils.release(conn,st,<span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>查询</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Connection;</span><br><span class="line"><span class="keyword">import</span> java.sql.PreparedStatement;</span><br><span class="line"><span class="keyword">import</span> java.sql.ResultSet;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">testSelectP</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Connection conn = <span class="keyword">null</span>;</span><br><span class="line">        PreparedStatement st = <span class="keyword">null</span>;</span><br><span class="line">        ResultSet rs = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn = jdbcutils.getConnection();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//区别</span></span><br><span class="line">            <span class="comment">//使用？展位</span></span><br><span class="line">            String sql = <span class="string">&quot;select * from stident where Sno=?&quot;</span>;</span><br><span class="line"></span><br><span class="line">            st = conn.prepareStatement(sql);</span><br><span class="line">            <span class="comment">//参数</span></span><br><span class="line">            st.setObject(<span class="number">1</span>,<span class="string">&quot;5&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//执行</span></span><br><span class="line">            rs = st.executeQuery();</span><br><span class="line">            <span class="keyword">if</span> (rs.next())&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;Sname:&quot;</span>+rs.getObject(<span class="string">&quot;Sname&quot;</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">            throwables.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            jdbcutils.release(conn,st,<span class="keyword">null</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>工具类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> javax.print.DocFlavor;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">jdbcutils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String driver = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String url = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String username = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> String password = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">            InputStream in = jdbcutils.class.getClassLoader().getResourceAsStream(<span class="string">&quot;db.properties&quot;</span>);</span><br><span class="line">            Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                properties.load(in);</span><br><span class="line"></span><br><span class="line">                driver = properties.getProperty(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">                url = properties.getProperty(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">                username = properties.getProperty(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">                password = properties.getProperty(<span class="string">&quot;password&quot;</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//加载驱动</span></span><br><span class="line">                Class.forName(driver);</span><br><span class="line"></span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//获取链接</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">()</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> DriverManager.getConnection(url,username,password);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//释放资源</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">release</span><span class="params">(Connection conn, Statement st, ResultSet rs)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (rs!=<span class="keyword">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            rs.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">            throwables.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (st!=<span class="keyword">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            st.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">            throwables.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (conn!=<span class="keyword">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            conn.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">            throwables.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>配置文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">driver=com.mysql.jdbc.Driver</span><br><span class="line">url=jdbc:mysql:<span class="comment">//localhost:3306/student?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</span></span><br><span class="line">username=root</span><br><span class="line">password=<span class="number">123456</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>主要配置文件放的位置</p>
-<p>在utils包外面，</p>
-</blockquote>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/JDBC%E5%AD%A6%E4%B9%A0%E5%B0%8F%E7%BB%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JDBC数据库" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="JDBC数据库"><a href="#JDBC数据库" class="headerlink" title="JDBC数据库"></a>JDBC数据库</h1><h2 id="1-初识mysql"><a href="#1-初识mysql" class="headerlink" title="1.初识mysql"></a>1.初识mysql</h2><h3 id="1-1-mysql安装"><a href="#1-1-mysql安装" class="headerlink" title="1.1.mysql安装"></a>1.1.mysql安装</h3><p>解压        </p>
-<p>把包放到自己的环境变量里面（D盘environment）</p>
-<p>配置环境变量</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44475386/article/details/108748011?utm_term=%E5%AE%89%E8%A3%85mysql%E7%8B%82%E7%A5%9E&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-108748011&amp;spm=3001.4430">https://blog.csdn.net/weixin_44475386/article/details/108748011?utm_term=%E5%AE%89%E8%A3%85mysql%E7%8B%82%E7%A5%9E&amp;utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduweb~default-0-108748011&amp;spm=3001.4430</a></p>
-<p>net start mysql   启动MySQL数据库</p>
-<p>mysql -u root -p123456   //(123456是密码)</p>
-<h3 id="1-2-Sqlyog软件安装使用"><a href="#1-2-Sqlyog软件安装使用" class="headerlink" title="1.2.Sqlyog软件安装使用"></a>1.2.Sqlyog软件安装使用</h3><p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210827104726931.png" alt="image-20210827104726931"></p>
-<p>字符集创建数据库时</p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210827105021954.png" alt="image-20210827105021954"></p>
-<p>学会在历史记录中学习sql语言</p>
-<p>常用的数据库命令行：</p>
-<figure class="highlight plaintext"><figcaption><span>user set password</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">flush privileges; 刷新数据库权限</span><br><span class="line">show databases; 显示所有数据库</span><br><span class="line">use dbname；打开某个数据库</span><br><span class="line">show tables; 显示数据库mysql中所有的表</span><br><span class="line">describe user; 显示表mysql数据库中user表的列信息</span><br><span class="line">create database name; 创建数据库</span><br><span class="line">use databasename; 选择数据库</span><br><span class="line"></span><br><span class="line">exit; 退出Mysql</span><br><span class="line">? 命令关键词 : 寻求帮助</span><br><span class="line">-- 表示注释 ``</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<p>数据库操作</p>
-<h3 id="结构化查询语句分类"><a href="#结构化查询语句分类" class="headerlink" title="结构化查询语句分类"></a>结构化查询语句分类</h3><p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QOGpDicLzwS6NJVAeLECu2rx2qboGU36S9hXLov0x0c5vzZAceySSXnA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><blockquote>
-<p>命令行操作数据库</p>
-</blockquote>
-<p>创建数据库 :  create database [if not exists] 数据库名;</p>
-<p>删除数据库 : drop database [if exists] 数据库名;</p>
-<p>查看数据库 : show databases;</p>
-<p>使用数据库 : use 数据库名;</p>
-<blockquote>
-<p>对比工具操作数据库</p>
-</blockquote>
-<p><strong>学习方法：</strong></p>
-<ul>
-<li>对照SQLyog工具自动生成的语句学习</li>
-<li>固定语法中的单词需要记忆</li>
-<li><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15Q2ITxibRRsQuuqibHorhqzYI83QYKRUVpMLCPA1chKQ39eUFQibJ2fwWFg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></li>
-</ul>
-<h3 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h3><p>属于DDL的一种，语法 :</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table [if not exists] `表名`(</span><br><span class="line">   &#x27;字段名1&#x27; 列类型 [属性][索引][注释],</span><br><span class="line">   &#x27;字段名2&#x27; 列类型 [属性][索引][注释],</span><br><span class="line">  #...</span><br><span class="line">   &#x27;字段名n&#x27; 列类型 [属性][索引][注释]</span><br><span class="line">)[表类型][表字符集][注释];</span><br></pre></td></tr></table></figure>
-
-<p><strong>说明 :</strong> 反引号用于区别MySQL保留字与普通字符而引入的 (键盘esc下面的键).</p>
-<h3 id="数据值和列类型"><a href="#数据值和列类型" class="headerlink" title="数据值和列类型"></a>数据值和列类型</h3><p>列类型 : 规定数据库中该列存放的数据类型</p>
-<blockquote>
-<p>数值类型</p>
-</blockquote>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QLXRrfmQjbUt3O7sLw0KKv9UtriaTr60JspXIZ69HkeOiagz86CE3a9Wg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<blockquote>
-<p>字符串类型</p>
-</blockquote>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QsjOPftNfn1ibXSP8OIYnsJaaPC8da61jCzcbdkqbApibQWgQ7KBjYbuw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<blockquote>
-<p>日期和时间型数值类型</p>
-</blockquote>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15Qcib3OwGtWEJkEE2biaa4jT3xokY1UicPT1MQcQNsa1EsjiaIqM1vvyUPjg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<blockquote>
-<p>NULL值</p>
-</blockquote>
-<ul>
-<li>理解为 “没有值” 或 “未知值”</li>
-<li>不要用NULL进行算术运算 , 结果仍为NULL</li>
-</ul>
-<h3 id="数据字段属性"><a href="#数据字段属性" class="headerlink" title="数据字段属性"></a>数据字段属性</h3><p><strong>UnSigned</strong></p>
-<ul>
-<li>无符号的</li>
-<li>声明该数据列不允许负数 .</li>
-</ul>
-<p><strong>ZEROFILL</strong></p>
-<ul>
-<li>0填充的</li>
-<li>不足位数的用0来填充 , 如int(3),5则为005</li>
-</ul>
-<p><strong>Auto_InCrement</strong></p>
-<ul>
-<li><p>自动增长的 , 每添加一条数据 , 自动在上一个记录数上加 1(默认)</p>
-</li>
-<li><p>通常用于设置<strong>主键</strong> , 且为整数类型</p>
-</li>
-<li><p>可定义起始值和步长</p>
-</li>
-<li><ul>
-<li>当前表设置步长(AUTO_INCREMENT=100) : 只影响当前表</li>
-<li>SET @@auto_increment_increment=5 ; 影响所有使用自增的表(全局)</li>
-</ul>
-</li>
-</ul>
-<p><strong>NULL 和 NOT NULL</strong></p>
-<ul>
-<li>默认为NULL , 即没有插入该列的数值</li>
-<li>如果设置为NOT NULL , 则该列必须有值</li>
-</ul>
-<p><strong>DEFAULT</strong></p>
-<ul>
-<li>默认的</li>
-<li>用于设置默认值</li>
-<li>例如,性别字段,默认为”男” , 否则为 “女” ; 若无指定该列的值 , 则默认值为”男”的值</li>
-</ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">-- 目标 : 创建一个school数据库</span><br><span class="line">-- 创建学生表(列,字段)</span><br><span class="line">-- 学号int 登录密码varchar(20) 姓名,性别varchar(2),出生日期(datatime),家庭住址,email</span><br><span class="line">-- 创建表之前 , 一定要先选择数据库</span><br><span class="line"></span><br><span class="line">CREATE TABLE IF NOT EXISTS `student` (</span><br><span class="line">`id` int(4) NOT NULL AUTO_INCREMENT COMMENT &#x27;学号&#x27;,</span><br><span class="line">`name` varchar(30) NOT NULL DEFAULT &#x27;匿名&#x27; COMMENT &#x27;姓名&#x27;,</span><br><span class="line">`pwd` varchar(20) NOT NULL DEFAULT &#x27;123456&#x27; COMMENT &#x27;密码&#x27;,</span><br><span class="line">`sex` varchar(2) NOT NULL DEFAULT &#x27;男&#x27; COMMENT &#x27;性别&#x27;,</span><br><span class="line">`birthday` datetime DEFAULT NULL COMMENT &#x27;生日&#x27;,</span><br><span class="line">`address` varchar(100) DEFAULT NULL COMMENT &#x27;地址&#x27;,</span><br><span class="line">`email` varchar(50) DEFAULT NULL COMMENT &#x27;邮箱&#x27;,</span><br><span class="line">PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8</span><br><span class="line"></span><br><span class="line">-- 查看数据库的定义</span><br><span class="line">SHOW CREATE DATABASE school;</span><br><span class="line">-- 查看数据表的定义</span><br><span class="line">SHOW CREATE TABLE student;</span><br><span class="line">-- 显示表结构</span><br><span class="line">DESC student;  -- 设置严格检查模式(不能容错了)SET sql_mode=&#x27;STRICT_TRANS_TABLES&#x27;;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="数据表的类型"><a href="#数据表的类型" class="headerlink" title="数据表的类型"></a>数据表的类型</h3><blockquote>
-<p>设置数据表的类型</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE 表名(</span><br><span class="line">   -- 省略一些代码</span><br><span class="line">   -- Mysql注释</span><br><span class="line">   -- 1. # 单行注释</span><br><span class="line">   -- 2. /*...*/ 多行注释</span><br><span class="line">)ENGINE = MyISAM (or InnoDB)</span><br><span class="line"></span><br><span class="line">-- 查看mysql所支持的引擎类型 (表类型)</span><br><span class="line">SHOW ENGINES;</span><br></pre></td></tr></table></figure>
-
-<p>MySQL的数据表的类型 : <strong>MyISAM</strong> , <strong>InnoDB</strong> , HEAP , BOB , CSV等…</p>
-<p>常见的 MyISAM 与 InnoDB 类型：</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15QpmSFMlJ4fDFdGoWOsTuNfFZq0XKW1GyibdZHU2F73DTezMYM1K0dc2A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<p>经验 ( 适用场合 )  :</p>
-<ul>
-<li>适用 MyISAM : 节约空间及相应速度</li>
-<li>适用 InnoDB : 安全性 , 事务处理及多用户操作数据表</li>
-</ul>
-<blockquote>
-<p>数据表的存储位置</p>
-</blockquote>
-<ul>
-<li><p>MySQL数据表以文件方式存放在磁盘中</p>
-</li>
-<li><ul>
-<li>包括表文件 , 数据文件 , 以及数据库的选项文件</li>
-<li>位置 : Mysql安装目录\data\下存放数据表 . 目录名对应数据库名 , 该目录下文件名对应数据表 .</li>
-</ul>
-</li>
-<li><p>注意 :</p>
-</li>
-<li><ul>
-<li><p>* . frm – 表结构定义文件</p>
-</li>
-<li><p>* . MYD – 数据文件 ( data )</p>
-</li>
-<li><p>* . MYI – 索引文件 ( index )</p>
-</li>
-<li><p>InnoDB类型数据表只有一个 *.frm文件 , 以及上一级目录的ibdata1文件</p>
-</li>
-<li><p>MyISAM类型数据表对应三个文件 :</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/uJDAUKrGC7JZX1D0neUIMjSFiazUGK15Q5tk8XtNtNGnUgevhFSzwTUrO7AmbXZFumTibt43SDII9nOQY97OtQdQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>设置数据表字符集</p>
-</blockquote>
-<p>我们可为数据库,数据表,数据列设定不同的字符集，设定方法 :</p>
-<ul>
-<li>创建时通过命令来设置 , 如 : CREATE TABLE 表名()CHARSET = utf8;</li>
-<li>如无设定 , 则根据MySQL数据库配置文件 my.ini 中的参数设定</li>
-</ul>
-<h3 id="修改数据库"><a href="#修改数据库" class="headerlink" title="修改数据库"></a>修改数据库</h3><blockquote>
-<p>修改表 ( ALTER TABLE )</p>
-</blockquote>
-<p>修改表名 :ALTER TABLE 旧表名 RENAME AS 新表名</p>
-<p>添加字段 : ALTER TABLE 表名 ADD字段名 列属性[属性]</p>
-<p>修改字段 :</p>
-<ul>
-<li>ALTER TABLE 表名 MODIFY 字段名 列类型[属性]</li>
-<li>ALTER TABLE 表名 CHANGE 旧字段名 新字段名 列属性[属性]</li>
-</ul>
-<p>删除字段 :  ALTER TABLE 表名 DROP 字段名</p>
-<blockquote>
-<p>删除数据表</p>
-</blockquote>
-<p>语法：DROP TABLE [IF EXISTS] 表名</p>
-<ul>
-<li>IF EXISTS为可选 , 判断是否存在该数据表</li>
-<li>如删除不存在的数据表会抛出错误</li>
-</ul>
-<blockquote>
-<p>其他</p>
-</blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1. 可用反引号（`）为标识符（库名、表名、字段名、索引、别名）包裹，以避免与关键字重名！中文也可以作为标识符！</span><br><span class="line"></span><br><span class="line">2. 每个库目录存在一个保存当前数据库的选项文件db.opt。</span><br><span class="line"></span><br><span class="line">3. 注释：</span><br><span class="line">  单行注释 # 注释内容</span><br><span class="line">  多行注释 /* 注释内容 */</span><br><span class="line">  单行注释 -- 注释内容       (标准SQL注释风格，要求双破折号后加一空格符（空格、TAB、换行等）)</span><br><span class="line">   </span><br><span class="line">4. 模式通配符：</span><br><span class="line">  _   任意单个字符</span><br><span class="line">  %   任意多个字符，甚至包括零字符</span><br><span class="line">  单引号需要进行转义 \&#x27;</span><br><span class="line">   </span><br><span class="line">5. CMD命令行内的语句结束符可以为 &quot;;&quot;, &quot;\G&quot;, &quot;\g&quot;，仅影响显示结果。其他地方还是用分号结束。delimiter 可修改当前对话的语句结束符。</span><br><span class="line"></span><br><span class="line">6. SQL对大小写不敏感 （关键字）</span><br><span class="line"></span><br><span class="line">7. 清除已有语句：\c</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/26/JDBC%E6%95%B0%E6%8D%AE%E5%BA%93/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-英语计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="英语计划"><a href="#英语计划" class="headerlink" title="英语计划"></a>英语计划</h2><p>英语又没有过四级，我尼玛，人麻了。今年必须过。我操。</p>
-<h4 id="听力："><a href="#听力：" class="headerlink" title="听力："></a>听力：</h4><p>每天都听，睡觉前听半个小时，就听考试题。精听。</p>
-<h4 id="阅读："><a href="#阅读：" class="headerlink" title="阅读："></a>阅读：</h4><p>每天一篇阅读按照顺序来做。仔细看看哪错了，和查词典。</p>
-<h4 id="作文："><a href="#作文：" class="headerlink" title="作文："></a>作文：</h4><p>每周写一次。</p>
-<p>每周那两个小时出来认认真真的做套题，一切按到考试的要求来。</p>
-<p>单词方面不要求多，但要记牢：</p>
-<p>每天40个新词。80个复习。</p>
-<p>一周背五天新单词。周末复习。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/26/%E8%8B%B1%E8%AF%AD%E8%AE%A1%E5%88%92/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-集合小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="集合小结"><a href="#集合小结" class="headerlink" title="集合小结"></a>集合小结</h1><h2 id="初始介绍与体系图"><a href="#初始介绍与体系图" class="headerlink" title="初始介绍与体系图"></a>初始介绍与体系图</h2><hr>
-<p>​    集合是一个<strong>框架（库）</strong>，其中有很多接口主要是用于数据结构不同的问题。用Java的类库帮助我们实现在程序设计中的传统的数据结构。说明一下，与现代的数据结构库一样，采用<strong>接口</strong>与实现<strong>分离</strong>。</p>
-<hr>
-<p>​    </p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210819094957917.png" alt="image-20210819094957917"></p>
-<p>ArrayList：数组；linkedList：链表</p>
-<p>TreeSet,HashSet：排序</p>
-<hr>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210819095236086.png" alt="image-20210819095236086"></p>
-<ul>
-<li>集合分两组：单列集合，双列集合（键值对形式）</li>
-<li>Collection 接口有两个重要的子接口List,Set,他们实现的类都是单列集合</li>
-<li>Map：接口实现的子类是双列集合，K-V</li>
-</ul>
-<h2 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h2><pre><code>+ collection接口扩展了Iterator接口。并且两个都是泛型接口。
-+ collection实现子类是可以存放多个元素，每个元素可以是对象。
-+ 有一些实现子类可以存放重复元素，有些不可以。
-+ 有一些子类可以是有序的（List）有些不是有序的（Set）。
-+ collection没有直接实现子类，是通过他的子接口Set和 List来实现
+<p><strong>模板</strong>：每个组件都有一个 HTML 模板，用于声明该组件的呈现方式。您可以内联或按文件路径定义此模板。</p>
+<p>在我看来三者的关系，HTML模板文件时主要的显示，而组件文件从angular库中引入一些模块，和一些操作，而当HTML提到了模块中的属性时相关语法自动调用模块文件。</p>
+<p>主要的过程是根据angular官网的教程走了一遍。</p>
+<p><strong>大体流程</strong>：用angular cli 创建初始应用程序—–创建英雄编辑器，并添加到外壳中显示—–用*ngfor显示一个列表—–用属性绑定来让父级组件控制子级—-重构行为类，进行数据访问在用messageservice为类间创建通信——添加导航—–用web api模块实现模拟数据服务器</p>
+<p><strong>博客建立</strong>：我的个人博客采用的是hexo这种框架完成，并已部署到到了GitHub上。大体流程：安装git bash—安装nodejs—生成ssh并添加到gihub–部署项目—绑定个人域名—配置主题—推到远端。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>   <strong>angular</strong>：</p>
+<pre><code>    - 显示英雄列表时ngif 是报错，没有英雄显示：TypeError: Cannot read property &#39;name&#39; of undefined
+    - 提取id路由参数时报错
+    - web api 和数据库的链接没有搞好
 </code></pre>
-<p>​    <strong>collection的基本方法</strong>。(基于ArrayList实现类的例子)</p>
-<p>​    add，remove，size，contains······</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">List list = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="comment">//用接口来接受对象，可以有接口的变量，但不能实例化；</span></span><br><span class="line">        <span class="comment">//父类可以指向子类</span></span><br><span class="line">        <span class="comment">//add:添加单个元素</span></span><br><span class="line">        list.add(<span class="string">&quot;jack&quot;</span>);</span><br><span class="line">        list.add(<span class="number">10</span>);<span class="comment">//list.add(new Interger(10));实际上是一个对象，不是基本的数据类型</span></span><br><span class="line">        list.add(<span class="keyword">true</span>);</span><br><span class="line">        System.out.println(<span class="string">&quot;list+&quot;</span> + list);</span><br><span class="line">        <span class="comment">//remove:删除指定对象</span></span><br><span class="line">		<span class="comment">// list.remove(&quot;true&quot;);</span></span><br><span class="line">		<span class="comment">//list.remove(0);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//contains:查找指定元素是否存在</span></span><br><span class="line">        System.out.println(list.contains(<span class="string">&quot;jack&quot;</span>));</span><br><span class="line">        <span class="comment">//size:获取元素个数</span></span><br><span class="line">        System.out.println(list.size());</span><br><span class="line">        <span class="comment">//</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>collection迭代器</strong>：扩展的Iterator。遍历集合</p>
-<p>Iterator仅用于遍历集合，本身并不存放对象。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Collection col = <span class="keyword">new</span> ArrayList();</span><br><span class="line"><span class="comment">//collection,指向子类，向上转型</span></span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;三国演义&quot;</span>,<span class="string">&quot;罗贯中&quot;</span>,<span class="number">15.5</span>));</span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;小李飞刀&quot;</span>,<span class="string">&quot;古龙&quot;</span>,<span class="number">19.9</span>));</span><br><span class="line">col.add(<span class="keyword">new</span> Book(<span class="string">&quot;红楼梦&quot;</span>,<span class="string">&quot;曹雪芹&quot;</span>,<span class="number">29.8</span>));</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">&quot;col=&quot;</span>+col);</span><br><span class="line"><span class="comment">//遍历col集合</span></span><br><span class="line"><span class="comment">//1.先得到col对应的迭代器</span></span><br><span class="line">Iterator iterator = col.iterator();</span><br><span class="line"><span class="comment">//2.使用while循环,快捷键itit</span></span><br><span class="line"><span class="keyword">while</span> (iterator.hasNext()) <span class="comment">//判断是否有下一个元素</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//返回下一个元素，类型是Object</span></span><br><span class="line">    Object next =  iterator.next();</span><br><span class="line">    System.out.println(<span class="string">&quot;next=&quot;</span> + next);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.退出while后，iterator指向最后一给元素。</span></span><br><span class="line"><span class="comment">//iterator.next():抛出异常</span></span><br><span class="line"><span class="comment">//4.如果要再次遍历重置迭代器:iterator=col.iterator()</span></span><br></pre></td></tr></table></figure>
-
-<p>增强for循环，与数组差不多。快捷键I</p>
-<h3 id="List接口"><a href="#List接口" class="headerlink" title="List接口"></a>List接口</h3><ul>
-<li>List接口是collection接口的子接口</li>
-<li>List集合类中元素有序（添加顺序和取出顺序一致），<strong>可以重复</strong>。</li>
-<li>List有对应的顺序索引，支持索引。</li>
-<li>List容器中元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号取出容器中的元素。</li>
-<li>常有的实现类：ArraryList，LinkedList，Vector</li>
-</ul>
-<h4 id="ArraryList实现类"><a href="#ArraryList实现类" class="headerlink" title="ArraryList实现类"></a>ArraryList实现类</h4><p>​     ArrayList是由数组来实现数据存储的；ArrayList基本等同于Vector，除了ArrayList是线程不安全的（但执行效率高）。</p>
-<h5 id="底层操作与源码分析"><a href="#底层操作与源码分析" class="headerlink" title="底层操作与源码分析"></a>底层操作与源码分析</h5><pre><code>+ ArrayList维护了一个object类型数组elementData.[]。
+<p>   <strong>hexo</strong></p>
+<pre><code> - 在windows 系统下给hexo配置个人信息时就是修改_config.yml中的个人GitHub的地址和分支时报错
+ - 用yilla时个人令牌的链接时报错
 </code></pre>
-<p>transient Object[] elementData;//表示属性不被序列化。</p>
-<pre><code>+ 创建对象时，如果使用的的无参构造器，扩容机制：先开始时0，第一次为10，如果再次扩容为elementData为1.5倍。
-+ 如果使用的时指定大小的构造器，初始容量为指定大小，扩容为1.5倍。
-</code></pre>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210825220400090.png" alt="image-20210825220400090"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210825220425585.png" alt="image-20210825220425585"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210825220524343.png" alt="image-20210825220524343"></p>
-<h4 id="Vector实现类"><a href="#Vector实现类" class="headerlink" title="Vector实现类"></a>Vector实现类</h4><p>​    线程安全同步，但效率不高。扩容：无参，默认10个，按两倍扩展，有参：两倍扩展。</p>
-<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><ul>
-<li>底层实现的双向链表的特点</li>
-<li>可以添加任意元素，包含null</li>
+<iframe height=489 width=510
+src="//player.bilibili.com/player.html?aid=588713576&bvid=BV1DB4y1M7hJ&cid=355959598&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+
+
+<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><p><strong>angular</strong>：</p>
+<ul>
+<li>网上看了一下是结合在模板中引用的性能表现<code>selectedHero</code>就像-expressions <code>&#123;&#123;selectedHero.name&#125;&#125;</code>-<em>一定会失败</em>，因为没有选择英雄。将英雄详细信息 HTML 包装在<code>&lt;div&gt;</code>. 将 Angular 的指令添加到并将其设置为。<code>*ngIf``&lt;div&gt;``selectedHero</code></li>
+<li>应用程序因编译器错误而崩溃。 <code>HeroService</code>没有<code>getHero()</code>方法。</li>
 </ul>
-<p>IDE的快捷键</p>
-<p>ctrl+y：删除当前行</p>
-<p>ctrl+d：复制当前行</p>
-<p>ctrl+alter+l：代碼格式化對其</p>
-<p>alter+insert：生成构造器或重写</p>
-<p>ctrl+h：查看层级关系</p>
-<p>CTRL+b：找到方法的类</p>
-<p>.var生成变量名</p>
+<p><strong>hexo</strong>:</p>
+<ul>
+<li>修改_congif.yml中网上教程是mac系统没有引号写入GitHub的地址但是在windows是要加一个引号地址才不会出错。</li>
+<li>个人GitHub的临牌一是可以直接输入密令用Git链接但是我这给电脑不知道为什么不行，就采用了用邮箱验证链接。</li>
+</ul>
+<h2 id="那些未解决"><a href="#那些未解决" class="headerlink" title="那些未解决"></a>那些未解决</h2><p><strong>angular</strong>：angular在项目中没解决的问题主要是一个是布置在远端和一个与数据库相连没有很好的解决。</p>
+<p><strong>hexo</strong>：中基本的操作回来，但是就个人的博客而言还是有一些进阶操作没有做好，最主要的是添加评论。准备用gitalk来实现一个基于 Github Issue 和 Preact 开发的评论插件和一些数据统计没有完善。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    总的来说，这门web的课程是非常有意义的了解了很多，给我最大感受的就是这个课和其他的课有一点不一样，老师带领我们了解了比较流行的技术而不是一些过时的技术。但是由于时间和自己的原因，在angular最后的这个实验只能是基本的了解了angular这个框架，有很多不明白的，一些机制也没有搞明白。接着这个实验报告的机会，弄了一个个人的博客，我觉得也是很有意义的。</p>
 
       
 
@@ -978,7 +536,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/19/%E9%9B%86%E5%90%88%E5%B0%8F%E7%BB%93/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">展开全文 >></a>
         </p>
       
 
@@ -1008,48 +566,39 @@
 
 
   
-    <article id="post-假期随记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/16/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2021/06/16/hello-world/" class="archive-article-date">
+  	<time datetime="2021-06-16T12:37:06.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<hr>
-<h2 id="假期随记"><a href="#假期随记" class="headerlink" title="假期随记"></a>假期随记</h2><hr>
-<h4 id="未来两年的事情规划"><a href="#未来两年的事情规划" class="headerlink" title="未来两年的事情规划"></a>未来两年的事情规划</h4><p>一年半后（2022年12月25日）要想考上研究生。</p>
-<p>一年半的时间安排</p>
-<h4 id="八月份到开学："><a href="#八月份到开学：" class="headerlink" title="八月份到开学："></a>八月份到开学：</h4><ul>
-<li><strong>数学建模</strong>参加了还是要好好学一下</li>
-<li><strong>英语</strong>养好习惯</li>
-<li><strong>Java</strong>最基本的操作，争取把<strong>数据库</strong>搞一下。</li>
-</ul>
-<hr>
-<h4 id="九月份开学到12月份放寒假："><a href="#九月份开学到12月份放寒假：" class="headerlink" title="九月份开学到12月份放寒假："></a>九月份开学到12月份放寒假：</h4><ul>
-<li>好好学好要学的<strong>两门专业课</strong>（计算机网络，操作系统）（结合王道的视频，和练题）要搞扎实。</li>
-<li><strong>英语</strong>  <strong>过四级</strong>非常重要，主要的是英语过级和词汇量（尽量把单词过一遍到两遍）。</li>
-<li>准备好<strong>pat</strong>考试11，12月份。</li>
-<li>基本的一个<strong>毕业设计要求Java</strong>。</li>
-<li>平时没事时搜集信息（全面，最好放在自己的博客里面）。</li>
-<li>锻炼。</li>
-</ul>
-<p>寒假期间：开始正式复习了</p>
-<p>具体安排：</p>
-<ul>
-<li><p>先看王道的视频，和提前学习起走。（先把握好这两门基础课程）。<strong>A</strong></p>
-</li>
-<li><p>英语要好好的坚持把扇贝上的早鸟。和定期要好好的按照时间进行整套真题的练习。英语对于我来说，非常重要。一定不能放弃。<strong>S</strong></p>
-</li>
-<li><p>准备好pat考试，主要的是对与数据结构和算法的学习。<strong>A</strong></p>
-</li>
-<li><p>基本的一个JavaWeb，可以用于到达项目的要求。<strong>A</strong></p>
-</li>
-<li><p>锻炼（减少饭量，少油，少糖）。</p>
-</li>
-<li><p>品是的娱乐上：可有多去看看自己感兴趣的东西。去一个道观旅行</p>
-</li>
-</ul>
-<h4 id="寒假"><a href="#寒假" class="headerlink" title="寒假"></a><strong>寒假</strong></h4><p>开始准备数学的基础阶段（千万不要回家和千万要把手机上干扰的东西全部去掉，要想像高中一样，必须一点的娱乐多不要在平时，只有周末）</p>
-<p>学习英语</p>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
 
@@ -1062,7 +611,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/11/%E5%81%87%E6%9C%9F%E9%9A%8F%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/06/16/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -1094,7 +643,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
     </nav>
   
 
