@@ -152,6 +152,298 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-CPT实验" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Cisco-Packet-Tracer-实验"><a href="#Cisco-Packet-Tracer-实验" class="headerlink" title="Cisco Packet Tracer 实验"></a>Cisco Packet Tracer 实验</h1><hr>
+<h3 id="一-直接连接两台-PC-构建-LAN"><a href="#一-直接连接两台-PC-构建-LAN" class="headerlink" title="一.直接连接两台 PC 构建 LAN"></a>一.直接连接两台 PC 构建 LAN</h3><p>将两台 PC 直接连接构成一个网络。注意：直接连接需使用交叉线。</p>
+<p>进行两台 PC 的基本网络配置，只需要配置 IP 地址即可，然后相互 ping 通即成功。</p>
+<p><strong>构建网络拓扑</strong></p>
+<img src="https://c1.im5i.com/2021/12/13/svLYJ.png" alt="svLYJ.png" border="0" />
+
+<img src="https://c1.im5i.com/2021/12/13/sve71.png" alt="sve71.png" border="0" />
+
+<h3 id="二-用交换机构建-LAN"><a href="#二-用交换机构建-LAN" class="headerlink" title="二.用交换机构建 LAN"></a>二.用交换机构建 LAN</h3><p><strong>构建网络拓扑</strong></p>
+<img src="https://c1.im5i.com/2021/12/13/sv0Pn.png" alt="sv0Pn.png" border="0" />
+
+<p><strong>配置网络设备</strong></p>
+<img src="https://c1.im5i.com/2021/12/13/svDTl.png" alt="svDTl.png" border="0" />
+
+<p><strong>跟踪数据包</strong></p>
+<img src="https://c1.im5i.com/2021/12/13/svae7.png" alt="svae7.png" border="0" />
+
+<p>（1）P0可以ping通P1，而不能ping通P2和P3；<br>（2）P3能够ping通P2，而不能ping通P0和P1；<br>（3）当将 4 台 PC 的掩码都改为 255.255.0.0 ，它们能够相互ping通,修改掩码让他们处于了同一子网。</p>
+<img src="https://c1.im5i.com/2021/12/13/svp62.png" alt="svp62.png" border="0" />
+
+<img src="https://c1.im5i.com/2021/12/13/sv7bP.png" alt="sv7bP.png" border="0" />
+
+<p>（4）使用二层交换机连接的网络不需要配置网关<br>（5）集线器和交换机有明显的区别，交换机会有arp，而集线器不会有它会 以广播的形式 把你发送的信息发给在同一子网下的每个人。</p>
+<h3 id="三-交换机接口地址列表"><a href="#三-交换机接口地址列表" class="headerlink" title="三.交换机接口地址列表"></a>三.交换机接口地址列表</h3><p>二层交换机是一种即插即用的多接口设备，它对于收到的帧有 3 种处理方式：广播、转发和丢弃（请弄清楚何时进行何种操作）。那么，要转发成功，则交换机中必须要有接口地址列表即 MAC 表，该表是交换机通过学习自动得到的！</p>
+<p>仍然构建上图的拓扑结构，并配置各计算机的 IP 在同一个一个子网，使用工具栏中的放大镜点击某交换机如左边的 Switch3，选择 <code>MAC Table</code>，可以看到最初交换机的 MAC 表是空的，也即它不知道该怎样转发帧（那么它将如何处理？），用 PC0 访问（<code>ping</code>）PC1 后，再查看该交换机的 MAC 表，现在有相应的记录，请思考如何得来。随着网络通信的增加，各交换机都将生成自己完整的 MAC 表，此时交换机的交换速度就是最快的！</p>
+<img src="https://c1.im5i.com/2021/12/13/svMiD.png" alt="svMiD.png" border="0" />
+
+
+
+<h3 id="四-生成树协议（Spanning-Tree-Protocol）"><a href="#四-生成树协议（Spanning-Tree-Protocol）" class="headerlink" title="四.生成树协议（Spanning Tree Protocol）"></a>四.生成树协议（Spanning Tree Protocol）</h3><p>交换机在目的地址未知或接收到广播帧时是要进行广播的。如果交换机之间存在回路/环路，那么就会产生广播循环风暴，从而严重影响网络性能。</p>
+<p>而交换机中运行的 STP 协议能避免交换机之间发生广播循环风暴。</p>
+<p><strong>构建网络拓扑</strong></p>
+<img src="https://c1.im5i.com/2021/12/13/svkQj.png" alt="svkQj.png" border="0" />
+
+<p>这是初始时的状态。我们可以看到交换机之间有回路，这会造成广播帧循环传送即形成广播风暴，严重影响网络性能。</p>
+<p>随后，交换机将自动通过生成树协议（STP）对多余的线路进行自动阻塞（Blocking），以形成一棵以 Switch4 为根（具体哪个是根交换机有相关的策略）的具有唯一路径树即生成树！</p>
+<p>经过一段时间，随着 STP 协议成功构建了生成树后，Switch5 的两个接口当前物理上是连接的，但逻辑上是不通的，处于Blocking状态（桔色）如下图所示：</p>
+<img src="https://c1.im5i.com/2021/12/13/s61BS.png" alt="s61BS.png" border="0" />
+
+<p>在网络运行期间，假设某个时候 Switch1 与 Switch3 之间的物理连接出现问题（将 Switch1 与 Switch3 的连线剪掉），则该生成树将自动发生变化。Switch5 上方先前 Blocking 的那个接口现在活动了（绿色），但下方那个接口仍处于 Blocking 状态（桔色）。如下图所示：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6FYL.png" alt="s6FYL.png" border="0" />
+
+<h3 id="五-路由器配置初步"><a href="#五-路由器配置初步" class="headerlink" title="五.路由器配置初步"></a>五.路由器配置初步</h3><p>自己补充：交通大学和重庆大学的连接是远程的。该连接要么通过路由器的光纤接口，要么通过广域网接口即所谓的 serial 口（如拓扑图所示）进行，一般不会通过双绞线连接（为什么？）。在这个版本中没有serial接口具体实现：配置路由器关机—&gt;安装模块—–&gt;开机</p>
+<img src="https://c1.im5i.com/2021/12/13/s6Q7t.png" alt="s6Q7t.png" border="0" />
+
+
+
+<p>构建网络拓扑</p>
+<img src="https://c1.im5i.com/2021/12/13/s6wVq.png" alt="s6wVq.png" border="0" />
+
+<p>配置网络设备</p>
+<img src="https://c1.im5i.com/2021/12/13/s6CTm.png" alt="s6CTm.png" border="0" />
+
+<p>pc机的配置</p>
+<img src="https://c1.im5i.com/2021/12/13/s6qzs.png" alt="s6qzs.png" border="0" />
+
+<p><strong>追踪数据包</strong></p>
+<p>✎ <strong>问题</strong></p>
+<p>现在交通大学内的各 PC 及网关相互能 <code>ping</code> 通，重庆大学也类似。但不能从交大的 PC <code>ping</code> 通重大的 PC，反之亦然，也即不能跨子网。为什么？</p>
+<img src="https://c1.im5i.com/2021/12/13/s66NQ.png" alt="s66NQ.png" border="0" />
+
+<p>子网与子网之间的路由表没有搞好，既是路由算法没有实现</p>
+<h3 id="六-静态路由"><a href="#六-静态路由" class="headerlink" title="六.静态路由"></a>六.静态路由</h3><p>静态路由是非自适应性路由协议，是由网络管理人员手动配置的，不能够根据网络拓扑的变化而改变。 因此，静态路由简单高效，适用于结构非常简单的网络。</p>
+<p>在当前这个简单的拓扑结构中我们可以使用静态路由，即直接告诉路由器到某网络该怎么走即可。</p>
+<p>在前述路由器基本配置成功的情况下使用以下命令进行静态路由协议的配置：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6Nb3.png" alt="s6Nb3.png" border="0" />
+
+
+
+<img src="https://c1.im5i.com/2021/12/13/s6Smy.png" alt="s6Smy.png" border="0" />
+
+
+
+<img src="https://c1.im5i.com/2021/12/13/s6GQO.png" alt="s6GQO.png" border="0" />
+
+
+
+
+
+<img src="https://c1.im5i.com/2021/12/13/s6KBR.png" alt="s6KBR.png" border="0" />
+
+
+
+<h3 id="七-动态路由-RIP"><a href="#七-动态路由-RIP" class="headerlink" title="七.动态路由 RIP"></a>七.动态路由 RIP</h3><p>动态路由协议采用自适应路由算法，能够根据网络拓扑的变化而重新计算机最佳路由。</p>
+<p>RIP 的全称是 Routing Information Protocol，是距离矢量路由的代表（目前虽然淘汰，但可作为我们学习的对象）。使用 RIP 协议只需要告诉路由器直接相连有哪些网络即可，然后 RIP 根据算法自动构建出路由表。</p>
+<p>因为我们模拟的网络非常简单，因此不能同时使用静态和动态路由，否则看不出效果，所以我们需要把刚才配置的静态路由先清除掉。</p>
+<p>清除静态路由配置：<br>1.直接关闭路由器电源。相当于没有保存任何配置，然后各接口再按照前面基本配置所述重新配置 IP 等参数（推荐此方法，可以再熟悉一下接口的配置命令）；<br>2.使用 no 命令清除静态路由。在全局配置模式下，交通大学路由器使用：no ip route 192.168.3.0 255.255.255.0 192.168.2.2，重庆大学路由器使用：no ip route 192.168.1.0 255.255.255.0 192.168.2.1 。相当于使用 no 命令把刚才配置的静态路由命令给取消。</p>
+<p>清除静态路由：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6Pnd.png" alt="s6Pnd.png" border="0" />
+
+<p>交通大学路由器 RIP 路由配置：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6V74.png" alt="s6V74.png" border="0" />
+
+<img src="https://c1.im5i.com/2021/12/13/s6fVW.png" alt="s6fVW.png" border="0" />
+
+
+
+<h3 id="八-动态路由-OSPF"><a href="#八-动态路由-OSPF" class="headerlink" title="八.动态路由 OSPF"></a>八.动态路由 OSPF</h3><p>OSPF（Open Shortest Path First 开放式最短路径优先）是一个内部网关协议（Interior Gateway Protocol，简称 IGP）， 用于在单一自治系统（Autonomous System，AS）内决策路由。OSPF 性能优于 RIP，是当前域内路由广泛使用的路由协议。</p>
+<p>同样的，我们需要把刚才配置的 RIP 路由先清除掉。</p>
+<p>清除 RIP 路由配置：<br>1.直接关闭路由器电源。相当于没有保存任何配置，然后各接口再按照前面基本配置所述重新配置 IP 等参数<br>2.使用 no 命令清除 RIP 路由。在全局配置模式下，各路由器都使用：no router rip 命令进行清除</p>
+<p>交通大学路由器 OSPF 路由配置：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6lWG.png" alt="s6lWG.png" border="0" />
+
+<img src="https://c1.im5i.com/2021/12/13/s6rzz.png" alt="s6rzz.png" border="0" />
+
+
+
+<p>查看路由表你可看到标记为 O 的一条路由，O 表示 OSPF 。</p>
+<p>至此，这些 PC 能全部相互 ping 通！</p>
+<h3 id="九-基于端口的网络地址翻译-PAT"><a href="#九-基于端口的网络地址翻译-PAT" class="headerlink" title="九.基于端口的网络地址翻译 PAT"></a>九.基于端口的网络地址翻译 PAT</h3><p>网络地址转换（NAT，Network Address Translation）被各个 Internet 服务商即 ISP 广泛应用于它们的网络中，也包括 WiFi 网络。 原因很简单，NAT 不仅完美地解决了 lP 地址不足的问题，而且还能够有效地避免来自网络外部的攻击，隐藏并保护网络内部的计算机。</p>
+<p>NAT 的实现方式一般有三种：</p>
+<p>静态转换： Static NAT<br>动态转换： Dynamic NAT<br>端口多路复用： OverLoad<br>端口多路复用使用最多也最灵活。OverLoad 是指不仅改变发向 Internet 数据包的源 IP 地址，同时还改变其源端口，即进行了端口地址转换（PAT，Port Address Translation）。</p>
+<p>采用端口多路复用方式，内部网络的所有主机均可共享一个合法外部 IP 地址实现对 Internet 的访问，从而可以最大限度地节约IP地址资源。 同时，又可隐藏网络内部的所有主机，有效避免来自 Internet 的攻击。因此，目前网络中应用最多的就是端口多路复用方式。</p>
+<p>我们仍然使用重庆交通大学和重庆大学两个学校的拓扑进行 PAT 实验。我们需要保证两个学校的路由已经配置成功，无论使用静态路由还是动态路由，以下我们给出完整的配置过程：设定这两个学校的路由器使用 OSPF 协议，模拟交通大学使用内部 IP 地址（192.168.1.0/24），模拟重庆大学使用外部 IP 地址（8.8.8.0/24），两个路由器之间使用外部 IP 地址（202.202.240.0/24），在交通大学的出口位置即广域网口实施 PAT。</p>
+<p>拓扑图中各 PC 配置数据如下：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6BN5.png" alt="s6BN5.png" border="0" />
+
+
+
+<p>交通大学路由器接口配置如下：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6Jt6.png" alt="s6Jt6.png" border="0" />
+
+<p>重庆大学路由器接口配置如下：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6cm8.png" alt="s6cm8.png" border="0" />
+
+
+
+<p>交通大学路由器 OSPF 路由配置：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6EhU.png" alt="s6EhU.png" border="0" />
+
+<p>重庆大学路由器 OSPF 路由配置：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6UJw.png" alt="s6UJw.png" border="0" />
+
+<p>此时，这些 PC 能全部相互 <code>ping</code> 通！如在交通大学内部使用 PC0（<code>192.168.1.2</code>）来 <code>ping</code> 重庆大学的PC2（<code>8.8.8.2</code>）应该成功。</p>
+<img src="https://c1.im5i.com/2021/12/13/s6bnZ.png" alt="s6bnZ.png" border="0" />
+
+<p>下面我们将重庆大学的路由器看着 Internet 中的骨干路由器，那么这些路由器将不会转发内部/私有 IP 地址的包（直接丢弃）。我们通过在重庆大学路由器上实施访问控制 ACL ，即丢弃来自交通大学（私有 IP 地址）的包来模拟这个丢包的过程。</p>
+<p>重庆大学路由器丢包的配置：</p>
+<p>此时，再使用交通大学内部的 PC0（<code>192.168.1.2</code>）来 <code>ping</code> 重庆大学的 PC2（<code>8.8.8.2</code>）就不成功了，会显示目的主机不可到达（<code>Destination host unreachable</code>）信息。</p>
+<img src="https://c1.im5i.com/2021/12/13/s6tMJ.png" alt="s6tMJ.png" border="0" />
+
+<p>此时，再使用交通大学内部的 PC0（192.168.1.2）来 ping 重庆大学的 PC2（8.8.8.2）就不成功了，会显示目的主机不可到达（Destination host unreachable）信息。<br>下面，我们就开始实施 PAT。即：我们将会在交通大学路由器的出口上将内部/私有 IP 地址转换为外部/公开 IP，从而包的源 IP 发生了改变，就不会被重庆大学路由器丢弃，因此网络连通。</p>
+<p>交通大学路由器 PAT 配置：</p>
+<img src="https://c1.im5i.com/2021/12/13/s65d1.png" alt="s65d1.png" border="0" />
+
+
+
+<h3 id="十-虚拟局域网-VLAN"><a href="#十-虚拟局域网-VLAN" class="headerlink" title="十.虚拟局域网 VLAN"></a>十.虚拟局域网 VLAN</h3><p>在实际网络中，你可看到路由器一般位于网络的边界，而内部几乎全部使用交换机连接。</p>
+<p>前面我们分析过，交换机连接的是同一个子网！ 显然，在这样一个大型规模的子网中进行广播甚至产生广播风暴将严重影响网络性能甚至瘫痪。</p>
+<p>另外我们也已经知道，其实学校是划分了 N 多个子网的，那么这些交换机连接的就绝不是一个子网！这样矛盾的事情该如何解释呢？我们实际上使用了支持 VLAN 的交换机！而前述的交换机只是普通的 2 层交换机（或者我们把它当作 2 层交换机在使用。</p>
+<p>VLAN（Virtual Local Area Network）即虚拟局域网。通过划分 VLAN，我们可以把一个物理网络划分为多个逻辑网段即多个子网。</p>
+<p>划分 VLAN 后可以杜绝网络广播风暴，增强网络的安全性，便于进行统一管理等。</p>
+<p>在 CPT 中构建如下图所示拓扑：</p>
+<img src="https://c1.im5i.com/2021/12/13/s6Pnd.png" alt="s6Pnd.png" border="0" />
+
+
+<p>查看 VLAN 的划分情况</p>
+<img src="https://c1.im5i.com/2021/12/14/sgYJ8.png" alt="sgYJ8.png" border="0" />
+
+<p>至此，在该交换机上我们就划分了 3 个 VLAN（不包括缺省的 VLAN 1）。</p>
+<p>各 VLAN 下 PC 的网络配置及连接的交换机接口如下表：</p>
+<img src="https://c1.im5i.com/2021/12/14/sgnoU.png" alt="sgnoU.png" border="0" />
+
+<p>追踪数据包</p>
+<img src="https://c1.im5i.com/2021/12/14/sgoOw.png" alt="sgoOw.png" border="0" />
+
+<p>可以看到PC0能够ping通PC1，而不能ping通PC2。你会发现只有在同一 VLAN 中的 PC 才能通信，且广播也局限于该 VLAN。这是因为交换机的每个端口可以设置一个VID，拥有相同VID的所有端口在逻辑上组成一个VLAN。从VID为1的端口进入的流量只会广播给VID为1的其他端口。VID为2的端口上连接的终端就不会接收到这些流量。当跨越多个交换机创建VLAN时，一般会用到标签VLAN，通过中继端口进行转发，在二层数据帧内部会添加4字节定义的首部来标示VID等信息。</p>
+<h3 id="十一-虚拟局域网管理-VTP"><a href="#十一-虚拟局域网管理-VTP" class="headerlink" title="十一.虚拟局域网管理 VTP"></a>十一.虚拟局域网管理 VTP</h3><p>前一个实验我们在交换机上进行了 VLAN 的规划和划分。但在实际应用中，我们绝不允许在这些支持VLAN的交换机上进行随意的 VLAN 划分，如此将造成管理混乱！VLAN的划分必须得到统一的规划和管理，这就需要 VTP 协议。</p>
+<p>VTP（VLAN Trunk Protocol）即 VLAN 中继协议。VTP 通过 ISL 帧或 Cisco 私有 DTP 帧（可查阅相关资料了解）保持 VLAN 配置统一性，也被称为虚拟局域网干道协议，它是思科私有协议。 VTP 统一管理、增加、删除、调整VLAN，自动地将信息向网络中其它的交换机广播。</p>
+<p>此外，VTP 减小了那些可能导致安全问题的配置，只要在 VTP Server 做相应设置，VTP Client 会自动学习 VTP Server 上的 VLAN 信息。</p>
+<p>为演示 VTP，重新构建如下拓扑结构：</p>
+<img src="https://c1.im5i.com/2021/12/14/sgIdZ.png" alt="sgIdZ.png" border="0" />
+
+<p>我们将在左边交换机 2960A 上进行如下工作：</p>
+<ol>
+<li>加入名为 <code>cqjtu</code> 的 VTP 域</li>
+<li>配置与核心交换机 3560 连接的千兆接口 <code>g0/1</code> 为 <code>trunk</code> 模式</li>
+<li>将接口 <code>f0/1</code> 划分到 <code>VLAN 2</code> 中</li>
+<li>将接口 <code>f0/2</code> 划分到 <code>VLAN 3</code> 中</li>
+</ol>
+<img src="https://c1.im5i.com/2021/12/14/sgZXJ.png" alt="sgZXJ.png" border="0" />
+
+<p>我们将在右边交换机 2960B 上进行同样的工作：</p>
+<p>加入名为 cqjtu VTP 域<br>配置与核心交换机 3560 连接的千兆接口 g0/1 为 trunk 模式<br>将接口 f0/1 划分到 VLAN 2 中<br>将接口 f0/2 划分到 VLAN 3 中</p>
+<img src="https://c1.im5i.com/2021/12/14/sgiD1.png" alt="sgiD1.png" border="0" />
+
+
+
+<p>至此，各交换机配置完毕。<br>各 PC 连接的交换机和接口以及网络配置如下：</p>
+<img src="https://c1.im5i.com/2021/12/14/sgxSn.png" alt="sgxSn.png" border="0" />
+
+<h3 id="十二-VLAN-间的通信"><a href="#十二-VLAN-间的通信" class="headerlink" title="十二.VLAN 间的通信"></a>十二.VLAN 间的通信</h3><p>VTP 只是给我们划分和管理 VLAN 提供了方便，由上面的测试得知，目前我们仍然不能在 VLAN 间通信。</p>
+<p>因为默认的，VLAN 间是不允许进行通信，此时我们需要所谓的独臂路由器在 VLAN 间为其进行转发！</p>
+<p>我们使用的核心交换机 3560 是个 3 层交换机，可工作在网络层，也称路由交换机，即具有路由功能，能进行这种转发操作。</p>
+<p>3560 交换机配置：</p>
+<img src="https://c1.im5i.com/2021/12/14/sg8ul.png" alt="sg8ul.png" border="0" />
+
+
+
+<h3 id="十三-DHCP、DNS及Web服务器简单配置"><a href="#十三-DHCP、DNS及Web服务器简单配置" class="headerlink" title="十三.DHCP、DNS及Web服务器简单配置"></a>十三.DHCP、DNS及Web服务器简单配置</h3><p>动态主机配置 DHCP、域名解析 DNS 以及 Web 服务在日常应用中作用巨大，我们构建如下简单的拓扑来进行练习。</p>
+<p>该拓扑中，服务器及客户机都连在同一交换机上。为简单起见，服务器 Server-PT 同时作为 DHCP、DNS 以及 Web 服务器，各客户机无需配置，将自动获取网络配置。</p>
+<p>点击 CPT 拓扑图中的 Server 图标，设置其静态 IP 地址为 <code>19.89.6.4/24</code>，然后选择 <code>Service</code> 进行如下相关配置：</p>
+<table>
+<thead>
+<tr>
+<th><strong>机器名</strong></th>
+<th><strong>配置项目</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Server</td>
+<td>HTTP</td>
+<td>开启即可</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>DNS</td>
+<td>19.89.6.4：<a target="_blank" rel="noopener" href="http://www.google.com、www.baidu.com/">www.google.com、www.baidu.com</a></td>
+</tr>
+<tr>
+<td>Server</td>
+<td>DHCP</td>
+<td>地址池开始地址：19.89.6.10/24，并返回DNS地址</td>
+</tr>
+<tr>
+<td>PC</td>
+<td>网络配置</td>
+<td>自动获取</td>
+</tr>
+</tbody></table>
+<p>把仔细的步骤写了一下</p>
+<img src="https://c1.im5i.com/2021/12/14/sgAx7.png" alt="sgAx7.png" border="0" />
+
+
+
+<img src="https://c1.im5i.com/2021/12/14/sgew2.png" alt="sgew2.png" border="0" />
+
+<img src="https://c1.im5i.com/2021/12/14/sgzcP.png" alt="sgzcP.png" border="0" />
+
+<p>验证数据包</p>
+<img src="https://c1.im5i.com/2021/12/14/sgDOj.png" alt="sgDOj.png" border="0" />
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/12/14/CPT%E5%AE%9E%E9%AA%8C/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Springboot_vue_sport项目" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -316,55 +608,6 @@
 
 
   
-    <article id="post-未命名" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211114123444942.png" alt="image-20211114123444942"></p>
-<p><img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20211114125732189.png" alt="image-20211114125732189"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/11/14/%E6%9C%AA%E5%91%BD%E5%90%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Javaweb" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -450,72 +693,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2021/08/29/Javaweb/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-考研资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="考研资料"><a href="#考研资料" class="headerlink" title="考研资料"></a>考研资料</h1><p>2022年12月底考研初试</p>
-<p>自己的话</p>
-<p>考研流程</p>
-<img src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210828205517768.png" alt="image-20210828205517768"  />
-
-<p>目标院校情况了解目标院校历年报考人数、分数线和报录比，学校和专业招生情况.</p>
-<p>每一课考研时间 3个小时。</p>
-<p>上午：政治  100   </p>
-<p>推荐搞个辅导班比较省时间 肖晓荣</p>
-<p>下午：英语  100</p>
-<p>上午：数学   150</p>
-<p>下午：专业课  150</p>
-<p>学科门类：三类  计算机 工学</p>
-<p>在选校方面，还是由仔细看看招生简章，，，，官网直接搜什么研究生院，主要找：历年分数线，历年报录比，具体要求</p>
-<p>意见贴的时候，可以看看失败的。自己英语不好这是必须要考虑的。</p>
-<p>数学   选择张宇</p>
-<p>专业课   选择王道</p>
-<p><img src="image-20211006171329569.png" alt="image-20211006171329569"></p>
-<p>英语比较差可以看看选择重基础的老师和方法<strong>陈仲凯</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/28/%E8%80%83%E7%A0%94%E8%B5%84%E6%96%99/">展开全文 >></a>
         </p>
       
 
@@ -849,61 +1026,6 @@
 
 
   
-    <article id="post-英语计划" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="英语计划"><a href="#英语计划" class="headerlink" title="英语计划"></a>英语计划</h2><p>英语又没有过四级，我尼玛，人麻了。今年必须过。我操。</p>
-<h4 id="听力："><a href="#听力：" class="headerlink" title="听力："></a>听力：</h4><p>每天都听，睡觉前听半个小时，就听考试题。精听。</p>
-<h4 id="阅读："><a href="#阅读：" class="headerlink" title="阅读："></a>阅读：</h4><p>每天一篇阅读按照顺序来做。仔细看看哪错了，和查词典。</p>
-<h4 id="作文："><a href="#作文：" class="headerlink" title="作文："></a>作文：</h4><p>每周写一次。</p>
-<p>每周那两个小时出来认认真真的做套题，一切按到考试的要求来。</p>
-<p>单词方面不要求多，但要记牢：</p>
-<p>每天40个新词。80个复习。</p>
-<p>一周背五天新单词。周末复习。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/26/%E8%8B%B1%E8%AF%AD%E8%AE%A1%E5%88%92/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-集合小结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1010,48 +1132,265 @@
 
 
   
-    <article id="post-假期随记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-MATLAB 入门之旅摘要" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<hr>
-<h2 id="假期随记"><a href="#假期随记" class="headerlink" title="假期随记"></a>假期随记</h2><hr>
-<h4 id="未来两年的事情规划"><a href="#未来两年的事情规划" class="headerlink" title="未来两年的事情规划"></a>未来两年的事情规划</h4><p>一年半后（2022年12月25日）要想考上研究生。</p>
-<p>一年半的时间安排</p>
-<h4 id="八月份到开学："><a href="#八月份到开学：" class="headerlink" title="八月份到开学："></a>八月份到开学：</h4><ul>
-<li><strong>数学建模</strong>参加了还是要好好学一下</li>
-<li><strong>英语</strong>养好习惯</li>
-<li><strong>Java</strong>最基本的操作，争取把<strong>数据库</strong>搞一下。</li>
-</ul>
-<hr>
-<h4 id="九月份开学到12月份放寒假："><a href="#九月份开学到12月份放寒假：" class="headerlink" title="九月份开学到12月份放寒假："></a>九月份开学到12月份放寒假：</h4><ul>
-<li>好好学好要学的<strong>两门专业课</strong>（计算机网络，操作系统）（结合王道的视频，和练题）要搞扎实。</li>
-<li><strong>英语</strong>  <strong>过四级</strong>非常重要，主要的是英语过级和词汇量（尽量把单词过一遍到两遍）。</li>
-<li>准备好<strong>pat</strong>考试11，12月份。</li>
-<li>基本的一个<strong>毕业设计要求Java</strong>。</li>
-<li>平时没事时搜集信息（全面，最好放在自己的博客里面）。</li>
-<li>锻炼。</li>
-</ul>
-<p>寒假期间：开始正式复习了</p>
-<p>具体安排：</p>
-<ul>
-<li><p>先看王道的视频，和提前学习起走。（先把握好这两门基础课程）。<strong>A</strong></p>
-</li>
-<li><p>英语要好好的坚持把扇贝上的早鸟。和定期要好好的按照时间进行整套真题的练习。英语对于我来说，非常重要。一定不能放弃。<strong>S</strong></p>
-</li>
-<li><p>准备好pat考试，主要的是对与数据结构和算法的学习。<strong>A</strong></p>
-</li>
-<li><p>基本的一个JavaWeb，可以用于到达项目的要求。<strong>A</strong></p>
-</li>
-<li><p>锻炼（减少饭量，少油，少糖）。</p>
-</li>
-<li><p>品是的娱乐上：可有多去看看自己感兴趣的东西。去一个道观旅行</p>
-</li>
-</ul>
-<h4 id="寒假"><a href="#寒假" class="headerlink" title="寒假"></a><strong>寒假</strong></h4><p>开始准备数学的基础阶段（千万不要回家和千万要把手机上干扰的东西全部去掉，要想像高中一样，必须一点的娱乐多不要在平时，只有周末）</p>
-<p>学习英语</p>
+        <h1 id="MATLAB-入门之旅摘要"><a href="#MATLAB-入门之旅摘要" class="headerlink" title="MATLAB 入门之旅摘要"></a>MATLAB 入门之旅摘要</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/matlab_env/create-and-edit-variables.html"><code>x = pi</code></a></td>
+<td align="center">使用等号 (<code>=</code>) 创建变量。 左侧 (<code>x</code>) 是变量的名称，其值为右侧 (<code>pi</code>) 的值。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/learn_matlab/calling-functions.html"><code>y = sin(-5)</code></a></td>
+<td align="center">您可以使用括号提供函数的输入。</td>
+</tr>
+</tbody></table>
+<h2 id="桌面管理"><a href="#桌面管理" class="headerlink" title="桌面管理"></a>桌面管理</h2><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/save.html"><code>save</code></a></td>
+<td align="center"><code>save data.mat</code></td>
+<td align="center">将当前工作区保存到 MAT 文件中。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/load.html"><code>load</code></a></td>
+<td align="center"><code>load data.mat</code></td>
+<td align="center">将 MAT 文件中的变量加载到工作区。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/clear.html"><code>clear</code></a></td>
+<td align="center"><code>clear</code></td>
+<td align="center">清除工作区中的所有变量。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/clc.html"><code>clc</code></a></td>
+<td align="center"><code>clc</code></td>
+<td align="center">清除命令行窗口中的所有文本。</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/format.html"><code>format</code></a></td>
+<td align="center"><code>format long</code></td>
+<td align="center">更改数值输出的显示方式。</td>
+</tr>
+</tbody></table>
+<h2 id="数组类型"><a href="#数组类型" class="headerlink" title="数组类型"></a>数组类型</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>4</code></td>
+<td align="center">标量</td>
+</tr>
+<tr>
+<td align="center"><code>[3 5]</code></td>
+<td align="center">行向量</td>
+</tr>
+<tr>
+<td align="center"><code>[1;3]</code></td>
+<td align="center">列向量</td>
+</tr>
+<tr>
+<td align="center"><code>[3 4 5;6 7 8]</code></td>
+<td align="center">矩阵</td>
+</tr>
+</tbody></table>
+<h2 id="等间距向量"><a href="#等间距向量" class="headerlink" title="等间距向量"></a>等间距向量</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>1:4</code></td>
+<td align="center">使用<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/ref/colon.html">冒号 (<code>:</code>)</a> 运算符，创建一个从 <code>1</code> 到 <code>4</code>，间距为 <code>1</code> 的向量。</td>
+</tr>
+<tr>
+<td align="center"><code>1:0.5:4</code></td>
+<td align="center">创建一个从 <code>1</code> 到 <code>4</code>，间距为 <code>0.5</code> 的向量。</td>
+</tr>
+<tr>
+<td align="center"><code>linspace(1,10,5)</code></td>
+<td align="center">创建一个包含 <code>5</code> 个元素的向量。这些值从 <code>1</code> 到 <code>10</code> 均匀间隔。</td>
+</tr>
+</tbody></table>
+<h2 id="创建矩阵"><a href="#创建矩阵" class="headerlink" title="创建矩阵"></a>创建矩阵</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>rand(2)</code></td>
+<td align="center">创建一个 <code>2</code> 行 <code>2</code> 列的方阵。</td>
+</tr>
+<tr>
+<td align="center"><code>zeros(2,3)</code></td>
+<td align="center">创建一个 <code>2</code> 行 <code>3</code> 列的矩形矩阵。</td>
+</tr>
+</tbody></table>
+<h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>A(end,2)</code></td>
+<td align="center">访问最后一行的第二列中的元素。</td>
+</tr>
+<tr>
+<td align="center"><code>A(2,:)</code></td>
+<td align="center">访问第二行所有元素。</td>
+</tr>
+<tr>
+<td align="center"><code>A(1:3,:)</code></td>
+<td align="center">访问前三行的所有列。</td>
+</tr>
+<tr>
+<td align="center"><code>A(2) = 11</code></td>
+<td align="center">将数组中第二个元素的值更改为 <code>11</code>。</td>
+</tr>
+</tbody></table>
+<h2 id="数组运算"><a href="#数组运算" class="headerlink" title="数组运算"></a>数组运算</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>[1 1; 1 1]*[2 2;2 2] ans =     4    4     4    4</code></td>
+<td align="center">执行<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/matlab_prog/array-vs-matrix-operations.html#btyv9yp-4">矩阵乘法</a>。</td>
+</tr>
+<tr>
+<td align="center"><code>[1 1; 1 1].*[2 2;2 2] ans =     2    2     2    2</code></td>
+<td align="center">执行<a target="_blank" rel="noopener" href="https://www.mathworks.com/help/matlab/matlab_prog/array-vs-matrix-operations.html#bu90xxy-1">按元素乘法</a>。</td>
+</tr>
+</tbody></table>
+<h2 id="多个输出"><a href="#多个输出" class="headerlink" title="多个输出"></a>多个输出</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>[xrow,xcol] = size(x)</code></td>
+<td align="center">将 <code>x</code> 中的行数和列数保存为两个不同变量。</td>
+</tr>
+<tr>
+<td align="center"><code>[xMax,idx] = max(x)</code></td>
+<td align="center">计算 <code>x</code> 的最大值及其对应的索引值。</td>
+</tr>
+</tbody></table>
+<h2 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>doc randi</code></td>
+<td align="center">打开 <code>randi</code> 函数的文档页。</td>
+</tr>
+</tbody></table>
+<h2 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>plot(x,y,&quot;ro-&quot;,&quot;LineWidth&quot;,5)</code></td>
+<td align="center">绘制一条红色 (<code>r</code>) 虚线 (<code>--</code>) 并使用圆圈 (<code>o</code>) 标记，线宽很大。</td>
+</tr>
+<tr>
+<td align="center"><code>hold on</code></td>
+<td align="center">在现有绘图中新增一行。</td>
+</tr>
+<tr>
+<td align="center"><code>hold off</code></td>
+<td align="center">为下一个绘图线条创建一个新坐标区。</td>
+</tr>
+<tr>
+<td align="center"><code>title(&quot;My Title&quot;)</code></td>
+<td align="center">为绘图添加标签。</td>
+</tr>
+</tbody></table>
+<h2 id="使用表"><a href="#使用表" class="headerlink" title="使用表"></a>使用表</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>data.HeightYards</code></td>
+<td align="center">从表 <code>data</code> 中提取变量 <code>HeightYards</code>。</td>
+</tr>
+<tr>
+<td align="center"><code>data.HeightMeters = data.HeightYards*0.9144</code></td>
+<td align="center">从现有数据中派生一个表变量。</td>
+</tr>
+</tbody></table>
+<h2 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>[5 10 15] &gt; 12</code></td>
+<td align="center">将向量与值 <code>12</code> 进行比较。</td>
+</tr>
+<tr>
+<td align="center"><code>v1(v1 &gt; 6)</code></td>
+<td align="center">提取 <code>v1</code> 中大于 <code>6</code> 的所有元素。</td>
+</tr>
+<tr>
+<td align="center"><code>x(x==999) = 1</code></td>
+<td align="center">用值 <code>1</code> 替换 <code>x</code> 中等于 <code>999</code> 的所有值。</td>
+</tr>
+</tbody></table>
+<h2 id="编程"><a href="#编程" class="headerlink" title="编程"></a>编程</h2><table>
+<thead>
+<tr>
+<th align="center">示例</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>if x &gt; 0.5    y = 3 else    y = 4 end</code></td>
+<td align="center">如果 <code>x</code> 大于 <code>0.5</code>，则将 <code>y</code> 的值设置为 <code>3</code>。  否则，将 <code>y</code> 的值设置为 <code>4</code>。</td>
+</tr>
+<tr>
+<td align="center"><code>for c = 1:3    disp(c) end</code></td>
+<td align="center">循环计数器 (<code>c</code>) 遍历 值 <code>1:3</code>（<code>1</code>、<code>2</code> 和 <code>3</code>）。  循环体显示 <code>c</code> 的每个值</td>
+</tr>
+</tbody></table>
 
       
 
@@ -1064,7 +1403,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/11/%E5%81%87%E6%9C%9F%E9%9A%8F%E8%AE%B0/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/07/26/MATLAB%20%E5%85%A5%E9%97%A8%E4%B9%8B%E6%97%85%E6%91%98%E8%A6%81/">展开全文 >></a>
         </p>
       
 
@@ -1094,10 +1433,193 @@
 
 
   
+    <article id="post-web实验报告" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">web实验报告</a>
+    </h1>
+  
+
+        
+        <a href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" class="archive-article-date">
+  	<time datetime="2021-06-16T12:40:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="做的什么"><a href="#做的什么" class="headerlink" title="做的什么"></a>做的什么</h2><p>​    我做的是一个基于前端框架Angular的动态网站，英雄之旅。但是由于一些知识还没搞懂，不能把他布置在GitHub上，并且也只是跟着教程大概的做了一遍，在加上要写报告，我就想着自己也没有一个自己的博客，所以就把实验报告就放在了自己的博客上。这个实验报告一是<strong>记录自己创建博客</strong>过程中遇到的问题和一些记录，二是记<strong>录在angular小实验</strong>中的遇到的问题和一些相应的记录。</p>
+<h2 id="开发过程"><a href="#开发过程" class="headerlink" title="开发过程"></a>开发过程</h2><h5 id="angular的基本介绍"><a href="#angular的基本介绍" class="headerlink" title="angular的基本介绍"></a>angular的基本介绍</h5><p>​    组件组件是 Angular 应用程序的主要构建块。每个组件包括：</p>
+<ul>
+<li><p>一个 HTML 模板，用于声明页面上呈现的内容，<code>&lt;component-  name&gt;.component.html</code></p>
+</li>
+<li><p>一个组件文件，<code>&lt;component-name&gt;.component.ts</code></p>
+</li>
+<li><p>一个css文件，<code>&lt;component-name&gt;.component.css</code></p>
+</li>
+</ul>
+<p><strong>组件文件</strong>：一个组件包括一个带有装饰器、HTML 模板和样式的 TypeScript 类。该装饰指定下列特定角度信息：<code>@Component()</code> <code>@Component()</code></p>
+<ul>
+<li>一个 CSS 选择器，用于定义组件在模板中的使用方式。模板中与此选择器匹配的 HTML 元素成为组件的实例。</li>
+<li>指示 Angular 如何呈现组件的 HTML 模板。</li>
+<li>一组可选的 CSS 样式，用于定义模板的 HTML 元素的外观。</li>
+</ul>
+<p><strong>模板</strong>：每个组件都有一个 HTML 模板，用于声明该组件的呈现方式。您可以内联或按文件路径定义此模板。</p>
+<p>在我看来三者的关系，HTML模板文件时主要的显示，而组件文件从angular库中引入一些模块，和一些操作，而当HTML提到了模块中的属性时相关语法自动调用模块文件。</p>
+<p>主要的过程是根据angular官网的教程走了一遍。</p>
+<p><strong>大体流程</strong>：用angular cli 创建初始应用程序—–创建英雄编辑器，并添加到外壳中显示—–用*ngfor显示一个列表—–用属性绑定来让父级组件控制子级—-重构行为类，进行数据访问在用messageservice为类间创建通信——添加导航—–用web api模块实现模拟数据服务器</p>
+<p><strong>博客建立</strong>：我的个人博客采用的是hexo这种框架完成，并已部署到到了GitHub上。大体流程：安装git bash—安装nodejs—生成ssh并添加到gihub–部署项目—绑定个人域名—配置主题—推到远端。</p>
+<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><p>   <strong>angular</strong>：</p>
+<pre><code>    - 显示英雄列表时ngif 是报错，没有英雄显示：TypeError: Cannot read property &#39;name&#39; of undefined
+    - 提取id路由参数时报错
+    - web api 和数据库的链接没有搞好
+</code></pre>
+<p>   <strong>hexo</strong></p>
+<pre><code> - 在windows 系统下给hexo配置个人信息时就是修改_config.yml中的个人GitHub的地址和分支时报错
+ - 用yilla时个人令牌的链接时报错
+</code></pre>
+<iframe height=489 width=510
+src="//player.bilibili.com/player.html?aid=588713576&bvid=BV1DB4y1M7hJ&cid=355959598&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+
+
+
+
+<h2 id="如何解决"><a href="#如何解决" class="headerlink" title="如何解决"></a>如何解决</h2><p><strong>angular</strong>：</p>
+<ul>
+<li>网上看了一下是结合在模板中引用的性能表现<code>selectedHero</code>就像-expressions <code>&#123;&#123;selectedHero.name&#125;&#125;</code>-<em>一定会失败</em>，因为没有选择英雄。将英雄详细信息 HTML 包装在<code>&lt;div&gt;</code>. 将 Angular 的指令添加到并将其设置为。<code>*ngIf``&lt;div&gt;``selectedHero</code></li>
+<li>应用程序因编译器错误而崩溃。 <code>HeroService</code>没有<code>getHero()</code>方法。</li>
+</ul>
+<p><strong>hexo</strong>:</p>
+<ul>
+<li>修改_congif.yml中网上教程是mac系统没有引号写入GitHub的地址但是在windows是要加一个引号地址才不会出错。</li>
+<li>个人GitHub的临牌一是可以直接输入密令用Git链接但是我这给电脑不知道为什么不行，就采用了用邮箱验证链接。</li>
+</ul>
+<h2 id="那些未解决"><a href="#那些未解决" class="headerlink" title="那些未解决"></a>那些未解决</h2><p><strong>angular</strong>：angular在项目中没解决的问题主要是一个是布置在远端和一个与数据库相连没有很好的解决。</p>
+<p><strong>hexo</strong>：中基本的操作回来，但是就个人的博客而言还是有一些进阶操作没有做好，最主要的是添加评论。准备用gitalk来实现一个基于 Github Issue 和 Preact 开发的评论插件和一些数据统计没有完善。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    总的来说，这门web的课程是非常有意义的了解了很多，给我最大感受的就是这个课和其他的课有一点不一样，老师带领我们了解了比较流行的技术而不是一些过时的技术。但是由于时间和自己的原因，在angular最后的这个实验只能是基本的了解了angular这个框架，有很多不明白的，一些机制也没有搞明白。接着这个实验报告的机会，弄了一个个人的博客，我觉得也是很有意义的。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/06/16/web%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/06/16/hello-world/">Hello World</a>
+    </h1>
+  
+
+        
+        <a href="/2021/06/16/hello-world/" class="archive-article-date">
+  	<time datetime="2021-06-16T12:37:06.329Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<img src="https://c1.im5i.com/2021/12/13/sCGQZ.png" alt="sCGQZ.png" border="0" />
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/06/16/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
