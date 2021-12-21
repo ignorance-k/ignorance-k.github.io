@@ -6,19 +6,40 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Wireshark实验 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sport项目笔记1. 后台项目建立，选择三个模块：web，mybatis frame，mysql driver，jdbc Api2. application.yml配置文件：删除application.properties的内容 1234567891011121314151617spring:  datasource:    driverClassName: com.mysql.cj.jdbc.">
+  <meta name="description" content="Wireshark验证实验准备知识：  （1）Frame:  物理层的数据帧概况  （2）Ethernet II: 数据链路层以太网帧头部信息  （3）Internet Protocol Version 4: 互联网层IP包头部信息  （4）Transmission Control Protocol: 传输层T的数据段头部信息，此处是TCP  （5）Hypertext Transfer Proto">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2021/11/17/Springboot_vue_sport%E9%A1%B9%E7%9B%AE/index.html">
+<meta property="og:title" content="Wireshark实验">
+<meta property="og:url" content="http://example.com/2021/11/21/Wireshark%E5%AE%9E%E9%AA%8C/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="sport项目笔记1. 后台项目建立，选择三个模块：web，mybatis frame，mysql driver，jdbc Api2. application.yml配置文件：删除application.properties的内容 1234567891011121314151617spring:  datasource:    driverClassName: com.mysql.cj.jdbc.">
+<meta property="og:description" content="Wireshark验证实验准备知识：  （1）Frame:  物理层的数据帧概况  （2）Ethernet II: 数据链路层以太网帧头部信息  （3）Internet Protocol Version 4: 互联网层IP包头部信息  （4）Transmission Control Protocol: 传输层T的数据段头部信息，此处是TCP  （5）Hypertext Transfer Proto">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-11-17T08:23:04.500Z">
-<meta property="article:modified_time" content="2021-11-20T10:07:52.618Z">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srnVP.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sroTD.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sr3zj.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srZNS.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sribL.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srmmt.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sr8hq.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srABm.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srLns.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sreMQ.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sr0V3.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srDWy.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srazO.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srpNR.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sr7td.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srMm4.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/srkhW.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/sy1JG.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/syFnz.png">
+<meta property="og:image" content="https://c2.im5i.com/2021/12/21/syFnz.png">
+<meta property="article:published_time" content="2021-11-21T07:53:14.000Z">
+<meta property="article:modified_time" content="2021-12-21T08:10:08.164Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://c2.im5i.com/2021/12/21/srnVP.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,35 +175,186 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Springboot_vue_sport项目" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Wireshark实验" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Wireshark实验
+    </h1>
+  
+
+        
+        <a href="/2021/11/21/Wireshark%E5%AE%9E%E9%AA%8C/" class="archive-article-date">
+  	<time datetime="2021-11-21T07:53:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-11-21</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="sport项目笔记"><a href="#sport项目笔记" class="headerlink" title="sport项目笔记"></a>sport项目笔记</h2><h4 id="1-后台项目建立，选择三个模块："><a href="#1-后台项目建立，选择三个模块：" class="headerlink" title="1. 后台项目建立，选择三个模块："></a>1. 后台项目建立，选择三个模块：</h4><h4 id="web，mybatis-frame，mysql-driver，jdbc-Api"><a href="#web，mybatis-frame，mysql-driver，jdbc-Api" class="headerlink" title="web，mybatis frame，mysql driver，jdbc Api"></a>web，mybatis frame，mysql driver，jdbc Api</h4><h4 id="2-application-yml配置文件："><a href="#2-application-yml配置文件：" class="headerlink" title="2. application.yml配置文件："></a>2. application.yml配置文件：</h4><p>删除application.properties的内容</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driverClassName:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/easyproject</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis:</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:mapper/*.xml</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.example.demo.model</span></span><br><span class="line"><span class="comment"># type-aliases-package就是扫描pojo（实体类）包，给包下所有pojo对象起别名。</span></span><br><span class="line"></span><br><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">9000</span></span><br><span class="line"><span class="comment"># 端口号的更改时因为前后端分离时，前端会暂用8080端口。</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Wireshark验证实验"><a href="#Wireshark验证实验" class="headerlink" title="Wireshark验证实验"></a>Wireshark验证实验</h2><p>准备知识：</p>
+<p> （1）Frame:  物理层的数据帧概况</p>
+<p> （2）Ethernet II: 数据链路层以太网帧头部信息</p>
+<p> （3）Internet Protocol Version 4: 互联网层IP包头部信息</p>
+<p> （4）Transmission Control Protocol: 传输层T的数据段头部信息，此处是TCP</p>
+<p> （5）Hypertext Transfer Protocol: 应用层的信息，此处是HTTP协议</p>
+<h3 id="实验一：熟悉-Ethernet-帧结构"><a href="#实验一：熟悉-Ethernet-帧结构" class="headerlink" title="实验一：熟悉 Ethernet 帧结构"></a>实验一：熟悉 Ethernet 帧结构</h3><p>使用 Wireshark 任意进行抓包，熟悉 Ethernet 帧的结构，如：目的 MAC、源 MAC、类型、字段等。</p>
+<img src="https://c2.im5i.com/2021/12/21/srnVP.png" alt="srnVP.png" border="0" />
 
+<p>Destination：目标MAC地址</p>
+<p>Source：源MAC地址</p>
+<p>Type：类型</p>
+<p><strong>你会发现 Wireshark 展现给我们的帧中没有校验字段，请了解一下原因。</strong></p>
+<p>Wireshark 展现给我们的帧中没有校验字段，帧已经被校验了，校验字段被wireshark去掉了。</p>
+<h3 id="实作二-了解子网内-外通信时的-MAC-地址"><a href="#实作二-了解子网内-外通信时的-MAC-地址" class="headerlink" title="实作二 了解子网内/外通信时的 MAC 地址"></a>实作二 了解子网内/外通信时的 MAC 地址</h3><ol>
+<li><code>ping</code> 你旁边的计算机（同一子网），同时用 Wireshark 抓这些包（可使用 icmp 关键字进行过滤以利于分析），记录一下发出帧的目的 MAC 地址以及返回帧的源 MAC 地址是多少？这个 MAC 地址是谁的？</li>
+</ol>
+<p>   2.然后 ping qige.io （或者本子网外的主机都可以），同时用 Wireshark 抓这些包（可 icmp 过滤），记录一下发出帧的目的 MAC 地址以及返回帧的源 MAC 地址是多少？这个 MAC 地址是谁的？</p>
+<img src="https://c2.im5i.com/2021/12/21/sroTD.png" alt="sroTD.png" border="0" />
 
+<img src="https://c2.im5i.com/2021/12/21/sr3zj.png" alt="sr3zj.png" border="0" />
 
+<p>本机MAC地址： 34-4B-50-00-00-00</p>
+<img src="https://c2.im5i.com/2021/12/21/srZNS.png" alt="srZNS.png" border="0" />
 
+<p>网关MAC地址： c8-ea-f8-32-85-f8</p>
+<blockquote>
+<p>问： 通过以上的实验，你会发现：</p>
+<ol>
+<li>访问本子网的计算机时，目的 MAC 就是该主机的</li>
+<li>访问非本子网的计算机时，目的 MAC 是网关的</li>
+</ol>
+<p>请问原因是什么？</p>
+<p>原因是访问外网的时候，都是通过 mac 地址送到网关处，然后出了网关再通过 IP 地址进行查找；接收到非子网的计算机返回的数据都是先到网关，网关再根据目的 mac 送到本机。</p>
+</blockquote>
+<h2 id="实验三："><a href="#实验三：" class="headerlink" title="实验三："></a>实验三：</h2><p>1、为防止干扰，先使用 <code>arp -d *</code> 命令清空 arp 缓存</p>
+<p>2、<code>ping</code> 你旁边的计算机（同一子网），同时用 Wireshark 抓这些包（可 arp 过滤），查看 ARP 请求的格式以及请求的内容，注意观察该请求的目的 MAC 地址是什么。再查看一下该请求的回应，注意观察该回应的源 MAC 和目的 MAC 地址是什么。</p>
+<img src="https://c2.im5i.com/2021/12/21/sribL.png" alt="sribL.png" border="0" />
 
+<p>源 MAC 是请求id电脑和目的 MAC 地址我的这台电脑的mac地址是什么。</p>
+<p>3、使用arp -d *命令清空arp缓存</p>
+<p>4、然后 <code>ping qige.io</code> （或者本子网外的主机都可以），同时用 Wireshark 抓这些包（可 arp 过滤）。查看这次 ARP 请求的是什么，注意观察该请求是谁在回应</p>
+<img src="https://c2.im5i.com/2021/12/21/srmmt.png" alt="srmmt.png" border="0" />
 
+<p>访问本子网外的主机的ARP请求的是MAC地址是fffffff即是广播的形式</p>
+<img src="https://c2.im5i.com/2021/12/21/sr8hq.png" alt="sr8hq.png" border="0" />
 
+<p>回应是网关在回应的MAC地址是网关的地址。</p>
+<img src="https://c2.im5i.com/2021/12/21/srABm.png" alt="srABm.png" border="0" />
 
-
-
+<h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><h3 id="实验一熟悉IP包结构"><a href="#实验一熟悉IP包结构" class="headerlink" title="实验一熟悉IP包结构"></a>实验一熟悉IP包结构</h3><p>使用 Wireshark 任意进行抓包（可用 ip 过滤），熟悉 IP 包的结构，如：版本、头部长度、总长度、TTL、协议类型等字段。</p>
+<img src="https://c2.im5i.com/2021/12/21/srLns.png" alt="srLns.png" border="0" />
 
 <blockquote>
-<h1 id="getMapping和-postMapping，-RestController"><a href="#getMapping和-postMapping，-RestController" class="headerlink" title="@getMapping和@postMapping，@RestController"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/ghc666/p/8657526.html">@getMapping和@postMapping，@RestController</a></h1><p>@RequestMapping  和  @GetMapping @PostMapping 区别</p>
-<p>@GetMapping是一个组合注解，是@RequestMapping(method = RequestMethod.GET)的缩写。</p>
-<p>@PostMapping是一个组合注解，是@RequestMapping(method = RequestMethod.POST)的缩写。</p>
-<p>@Controller和@RestController的区别？</p>
-<p>官方文档：<br>@RestController is a stereotype annotation that combines @ResponseBody and @Controller.<br>意思是：<br>@RestController注解相当于@ResponseBody ＋ @Controller合在一起的作用。</p>
-<p>1)如果只是使用@RestController注解Controller，则Controller中的方法无法返回jsp页面，配置的视图解析器InternalResourceViewResolver不起作用，返回的内容就是Return 里的内容。</p>
-<p>例如：本来应该到success.jsp页面的，则其显示success.</p>
-<p>2)如果需要返回到指定页面，则需要用 @Controller配合视图解析器InternalResourceViewResolver才行。<br>3)如果需要返回JSON，XML或自定义mediaType内容到页面，则需要在对应的方法上加上@ResponseBody注解</p>
-<p>和你一起追求代码的提供给我们的快乐</p>
+<p>Version: 4                                                             #互联网协议IPv4</p>
+<p>Header length: 20 bytes                                        #IP包头部长度</p>
+<p>Total Length: 254                                              #IP包的总长度</p>
+<p>Identification: 0x5bb5 (23477)                                  #标志字段</p>
+<p>Time to live: 64                                                #生存期TTL</p>
 </blockquote>
+<p>✎ <strong>问题</strong></p>
+<p>为提高效率，我们应该让 IP 的头部尽可能的精简。但在如此珍贵的 IP 头部你会发现既有头部长度字段，也有总长度字段。请问为什么？</p>
+<ul>
+<li>便于传输时的识别IP总长度，节省时间，当长度超过1500B时就会到数据链路层进行分段</li>
+</ul>
+<h3 id="实验二IP-包的分段与重组"><a href="#实验二IP-包的分段与重组" class="headerlink" title="实验二IP 包的分段与重组"></a>实验二IP 包的分段与重组</h3><p>根据规定，一个 IP 包最大可以有 64K 字节。但由于 Ethernet 帧的限制，当 IP 包的数据超过 1500 字节时就会被发送方的数据链路层分段，然后在接收方的网络层重组。</p>
+<p>缺省的，ping 命令只会向对方发送 32 个字节的数据。例如我们可以使用 ping 202.202.240.16 -l 2000 命令指定要发送的数据长度。此时使用 Wireshark 抓包（用 ip.addr == 202.202.240.16 进行过滤），了解 IP 包如何进行分段，如：分段标志、偏移量以及每个包的大小等</p>
+<p>（补充：在ping202.202.240.16网站时，传输大包时总是请求超时，所以实验中换成了qige.io）</p>
+<img src="https://c2.im5i.com/2021/12/21/sreMQ.png" alt="sreMQ.png" border="0" />
+
+<p>第一个包：Total Length：1500，包的大小为1500B并且偏移量为0</p>
+<img src="https://c2.im5i.com/2021/12/21/sr0V3.png" alt="sr0V3.png" border="0" />
+
+<p>第二的个包：大小为548，偏移量为1480</p>
+<p>可以看出分成两个IP包发送的时候，IP包①长度为1500，IP包②长度为48，分片偏移量为1480，意思是两个IP包以第1480字节作为分隔的节点</p>
+<p>分片偏移的意义为：较长的分组在分片后，某片在原分组中的相对位置。也就是说，相对用户数据字段的起点，该片从何处开始。片偏移以8个字节为偏移单位。这就是说，每个分片的长度一定是8字节（64位）的整数倍。</p>
+<p>✎ <strong>问题</strong></p>
+<p>分段与重组是一个耗费资源的操作，特别是当分段由传送路径上的节点即路由器来完成的时候，所以 IPv6 已经不允许分段了。那么 IPv6 中，如果路由器遇到了一个大数据包该怎么办？</p>
+<ul>
+<li>通过查阅得知，当遇到了一个大数据包，导致不能转发到链路上，则路由器会把该数据包丢弃。</li>
+</ul>
+<h3 id="实验三考察-TTL-事件"><a href="#实验三考察-TTL-事件" class="headerlink" title="实验三考察 TTL 事件"></a>实验三考察 TTL 事件</h3><p>在 IP 包头中有一个 TTL 字段用来限定该包可以在 Internet上传输多少跳（hops），一般该值设置为 64、128等。</p>
+<p>在验证性实验部分我们使用了 <code>tracert</code> 命令进行路由追踪。其原理是主动设置 IP 包的 TTL 值，从 1 开始逐渐增加，直至到达最终目的主机。</p>
+<p>请使用 <code>tracert www.baidu.com</code> 命令进行追踪，此时使用 Wireshark 抓包（用 <code>icmp</code> 过滤），分析每个发送包的 TTL 是如何进行改变的，从而理解路由追踪原理。</p>
+<img src="https://c2.im5i.com/2021/12/21/srDWy.png" alt="srDWy.png" border="0" />
+
+<img src="https://c2.im5i.com/2021/12/21/srazO.png" alt="srazO.png" border="0" />
+
+<p>第一跳</p>
+<img src="https://c2.im5i.com/2021/12/21/srpNR.png" alt="srpNR.png" border="0" />
+
+<p>第八跳</p>
+<p>TTL字段指定IP包被路由器丢弃之前允许通过的最大网段数量</p>
+<p>Tracert 先发送 TTL 为 1 的回应数据包，并随后的每次发送过程将 TTL 递增 1，直到目标响应或 TTL 达到最大值，从而确定路由</p>
+<blockquote>
+<p>✎ <strong>问题</strong></p>
+<p>在 IPv4 中，TTL 虽然定义为生命期即 Time To Live，但现实中我们都以跳数/节点数进行设置。如果你收到一个包，其 TTL 的值为 50，那么可以推断这个包从源点到你之间有多少跳？</p>
+<ul>
+<li>至少50跳</li>
+</ul>
+</blockquote>
+<h3 id="传输层："><a href="#传输层：" class="headerlink" title="传输层："></a>传输层：</h3><h3 id="实验一：熟悉TCP和UDP段结构"><a href="#实验一：熟悉TCP和UDP段结构" class="headerlink" title="实验一：熟悉TCP和UDP段结构"></a>实验一：熟悉TCP和UDP段结构</h3><ol>
+<li>用 Wireshark 任意抓包（可用 tcp 过滤），熟悉 TCP 段的结构，如：源端口、目的端口、序列号、确认号、各种标志位等字段。</li>
+<li>用 Wireshark 任意抓包（可用 udp 过滤），熟悉 UDP 段的结构，如：源端口、目的端口、长度等。</li>
+</ol>
+<img src="https://c2.im5i.com/2021/12/21/sr7td.png" alt="sr7td.png" border="0" />
+
+<p>TCP的段结构如图：</p>
+<ul>
+<li>Source port: 18406                                     #源端口号</li>
+<li>Destination port: 443                                      #目标端口号</li>
+<li>Sequence number: 2  (relative sequence number)                  #序列号（相对序列号）</li>
+<li>[Next sequence number: 2  (relative sequence number)]      #下一个序列号</li>
+<li>Acknowledgment number: 2  (relative ack number)             #确认序列号</li>
+<li>Header length: 20 bytes                                        #头部长度</li>
+<li>Flags: 0x010 (ACK)                                       #TCP标记字段</li>
+<li>Window size value: 30                                        #流量控制的窗口大小</li>
+<li>Checksum: 0x47bf [validation disabled]                         #TCP数据段的校验和</li>
+</ul>
+<img src="https://c2.im5i.com/2021/12/21/srMm4.png" alt="srMm4.png" border="0" />
+
+<p>UDP的段结构：</p>
+<ul>
+<li>Source port: 67                                     #源端口号</li>
+<li>Destination port: 68                                      #目标端口号</li>
+<li>Length: 320                                           #长度</li>
+<li>Checksum: 0x6b7a [unverified]               #校验和</li>
+</ul>
+<p>✎ <strong>问题</strong></p>
+<p>由上大家可以看到 UDP 的头部比 TCP 简单得多，但两者都有源和目的端口号。请问源和目的端口号用来干什么？</p>
+<ul>
+<li>源端口就是指本地端口，目的端口就是远程端口<br>源端口就是本机程序用来发送数据的端口，目的端口就是对方主机用哪个端口接收</li>
+</ul>
+<h3 id="实验二：分析-TCP-建立和释放连接"><a href="#实验二：分析-TCP-建立和释放连接" class="headerlink" title="实验二：分析 TCP 建立和释放连接"></a>实验二：分析 TCP 建立和释放连接</h3><p><strong>分析 TCP 建立和释放连接</strong></p>
+<p>打开浏览器访问 qige.io 网站，用 Wireshark 抓包（可用 tcp 过滤后再使用加上 Follow TCP Stream），不要立即停止 Wireshark 捕获，待页面显示完毕后再多等一段时间使得能够捕获释放连接的包。</p>
+<p>请在你捕获的包中找到三次握手建立连接的包，并说明为何它们是用于建立连接的，有什么特征。</p>
+<p><strong>三次握手：</strong></p>
+<p>第一次</p>
+<p>本地主机：192.168.0.178发送一个标识了<strong>SYN=1</strong>的数据段，表示期望与服务器172.67.143.53（qige教育网）建立连接，TCP规定SYN=1时不能携带数据，但要消耗一个序号,因此声明自己的序号是 <strong>seq=0</strong>;</p>
+<img src="https://c2.im5i.com/2021/12/21/srkhW.png" alt="srkhW.png" border="0" />
+
+<p>第二次握手</p>
+<p>服务器回复标识了<strong>SYN=1,ACK=1</strong>的数据段，此数据段的序列号<strong>seq=0</strong>，确认序列号为期望收到的下一个的序号就是上一次握手的seq+1，以此作为对主机的SYN报文的确认。</p>
+<img src="https://c2.im5i.com/2021/12/21/sy1JG.png" alt="sy1JG.png" border="0" />
+
+<p>第三次握手：</p>
+<p>主机发送一个标识了<strong>ACK=1</strong>的数据段，连接已建立，<strong>SYN</strong>字段为0，此数据段的序列号<strong>seq=1</strong>，确认序列号为服务器的序列号加1（<strong>ack=1</strong>），以此作为对服务器A的SYN报文段的确认。</p>
+<img src="https://c2.im5i.com/2021/12/21/syFnz.png" alt="syFnz.png" border="0" />
+
+<p>四次挥手</p>
+<img src="https://c2.im5i.com/2021/12/21/syFnz.png" alt="syFnz.png" border="0" />
+
+<p>”第一次挥手”客户端发送的FIN请求释放连接报文以[FIN，ACK]作为标志位，其中报文序号Seq=613；确认号Ack=741；<br>”第二次挥手”服务器端继续返回的FIN同意释放连接报文以[FIN，ACK]作为标志位；其中报文序号Seq=741；确认号Ack=614；<br>”第三次挥手”客户端发出的ACK确认接收报文以[ACK]作为标志位；其中报文序号Seq=614；确认号Ack=742；</p>
+<hr>
+<p><strong>问题一</strong></p>
+<p><strong>去掉 Follow TCP Stream，即不跟踪一个 TCP 流，你可能会看到访问 qige.io 时我们建立的连接有多个。请思考为什么会有多个连接？作用是什么？</strong></p>
+<hr>
+<p> <strong>问题二</strong></p>
+<p><strong>我们上面提到了释放连接需要四次挥手，有时你可能会抓到只有三次挥手。原因是什么？</strong></p>
+<p>是因为第二次握手和第三次挥手合并了，FIN报文用在本端没有数据发送给对方时，关闭从本端到对端的连接。但是并不影响从对方到本端的连接，也就是说本端仍然可以接收对方的数据。即发送通道关闭，接收通道正常。<br>如果对方收到本端FIN报文时，对方的接收通道就会关闭。此时，如果对方也没有数据发给本端，那么对方也会发送FIN给本端，用于关闭从对方到本端的连接，这时候就可能出现ACK和FIN合在一起的情况。<br>当然，如果对方仍然有数据发送，那么就等数据发完，再发FIN来关闭连接，这时候就是四次挥手了。</p>
 
       
 
@@ -262,7 +434,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/17/Springboot_vue_sport%E9%A1%B9%E7%9B%AE/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/11/21/Wireshark%E5%AE%9E%E9%AA%8C/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,17 +448,17 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/11/21/Wireshark%E5%AE%9E%E9%AA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/12/14/CPT%E5%AE%9E%E9%AA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Wireshark实验
+          web实验报告
         
       </div>
     </a>
   
   
-    <a href="/2021/11/16/springboot/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2021/11/17/Springboot_vue_sport%E9%A1%B9%E7%9B%AE/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
@@ -314,7 +486,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sport%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0"><span class="toc-number">1.</span> <span class="toc-text">sport项目笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%90%8E%E5%8F%B0%E9%A1%B9%E7%9B%AE%E5%BB%BA%E7%AB%8B%EF%BC%8C%E9%80%89%E6%8B%A9%E4%B8%89%E4%B8%AA%E6%A8%A1%E5%9D%97%EF%BC%9A"><span class="toc-number">1.0.1.</span> <span class="toc-text">1. 后台项目建立，选择三个模块：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#web%EF%BC%8Cmybatis-frame%EF%BC%8Cmysql-driver%EF%BC%8Cjdbc-Api"><span class="toc-number">1.0.2.</span> <span class="toc-text">web，mybatis frame，mysql driver，jdbc Api</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-application-yml%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="toc-number">1.0.3.</span> <span class="toc-text">2. application.yml配置文件：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#getMapping%E5%92%8C-postMapping%EF%BC%8C-RestController"><span class="toc-number"></span> <span class="toc-text">@getMapping和@postMapping，@RestController</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Wireshark%E9%AA%8C%E8%AF%81%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">Wireshark验证实验</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9A%E7%86%9F%E6%82%89-Ethernet-%E5%B8%A7%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.</span> <span class="toc-text">实验一：熟悉 Ethernet 帧结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E4%BD%9C%E4%BA%8C-%E4%BA%86%E8%A7%A3%E5%AD%90%E7%BD%91%E5%86%85-%E5%A4%96%E9%80%9A%E4%BF%A1%E6%97%B6%E7%9A%84-MAC-%E5%9C%B0%E5%9D%80"><span class="toc-number">1.2.</span> <span class="toc-text">实作二 了解子网内&#x2F;外通信时的 MAC 地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%89%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">实验三：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">网络层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80%E7%86%9F%E6%82%89IP%E5%8C%85%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.</span> <span class="toc-text">实验一熟悉IP包结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8CIP-%E5%8C%85%E7%9A%84%E5%88%86%E6%AE%B5%E4%B8%8E%E9%87%8D%E7%BB%84"><span class="toc-number">2.3.</span> <span class="toc-text">实验二IP 包的分段与重组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%89%E8%80%83%E5%AF%9F-TTL-%E4%BA%8B%E4%BB%B6"><span class="toc-number">2.4.</span> <span class="toc-text">实验三考察 TTL 事件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%A0%E8%BE%93%E5%B1%82%EF%BC%9A"><span class="toc-number">2.5.</span> <span class="toc-text">传输层：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80%EF%BC%9A%E7%86%9F%E6%82%89TCP%E5%92%8CUDP%E6%AE%B5%E7%BB%93%E6%9E%84"><span class="toc-number">2.6.</span> <span class="toc-text">实验一：熟悉TCP和UDP段结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C%EF%BC%9A%E5%88%86%E6%9E%90-TCP-%E5%BB%BA%E7%AB%8B%E5%92%8C%E9%87%8A%E6%94%BE%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.7.</span> <span class="toc-text">实验二：分析 TCP 建立和释放连接</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
